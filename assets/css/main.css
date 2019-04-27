@@ -1,3 +1,183 @@
+/*Import google fonts*/
+@import url("https://fonts.googleapis.com/css?family=Orbitron:100,200,300,400,500,600,700,800,900");
+/*Mixins*/
+body {
+  background-image: linear-gradient(to bottom right, red, blue, yellow, green); }
 
+.nav-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0; }
+
+.nav-heading {
+  margin: 0; }
+
+.nav-heading a {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  color: #6b0000;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 1px slategray, -2px -2px 1px slategray; }
+.nav-heading a:hover {
+  text-decoration: none; }
+
+.accordion-container {
+  padding: 0; }
+
+.card {
+  border-radius: 0;
+  background: none; }
+
+.card-header {
+  padding: 0; }
+
+.card-body {
+  padding: 10px 20px; }
+
+.accordion button {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #6b0000;
+  text-shadow: 1px 1px 1px slategray; }
+.accordion button:hover,
+.accordion button:focus {
+  text-decoration: none;
+  color: #6b0000; }
+.accordion .card-body {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 300;
+  color: #6b0000;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px slategray; }
+
+.game-container .game-options-wrapper {
+  margin-top: 20px; }
+.game-container .game-option-btn {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #6b0000;
+  color: #ff1810;
+  border-radius: 10px;
+  border-color: slategray;
+  width: 100px;
+  vertical-align: -webkit-baseline-middle; }
+.game-container .round-display {
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #6b0000;
+  color: #ff1810;
+  border: outset 3px slategray; }
+.game-container #round-text,
+.game-container #round-num {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+  margin: 0; }
+
+#start-btn {
+  width: inherit;
+  padding: 7px; }
+
+.game-option-btn-on {
+  background-color: #ff1810;
+  color: #6b0000; }
+
+.game-btn-wrapper {
+  margin-top: 5px;
+  padding: 0; }
+
+.game-btn {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  position: relative; }
+
+button:focus {
+  outline: none; }
+
+.yellow {
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  position: absolute;
+  border-width: 3px;
+  border-color: slategray;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: #d2d200; }
+
+.red {
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  position: absolute;
+  border-width: 3px;
+  border-color: slategray;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: #b10000; }
+
+.green {
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  position: absolute;
+  border-width: 3px;
+  border-color: slategray;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: #008000; }
+
+.blue {
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  position: absolute;
+  border-width: 3px;
+  border-color: slategray;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-color: #00009a; }
+
+.yellow-lit {
+  background-color: #ffff00; }
+
+.red-lit {
+  background-color: #ff0000; }
+
+.green-lit {
+  background-color: #00ff00; }
+
+.blue-lit {
+  background-color: #0000ff; }
+
+.footer-text {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+  color: #6b0000;
+  text-shadow: 1px 1px 1px slategray; }
+
+.footer-text a:hover,
+.footer-text a:focus {
+  text-decoration: none; }
 
 /*# sourceMappingURL=main.css.map */

@@ -17,11 +17,139 @@
 </head>
 
 <body>
+
+    <!--Header (game name - link to home page)-->
+    <header class="nav-container container-fluid text-center">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="nav-heading text-uppercase"><a href="/">Simon Game</a></h1>
+            </div>
+        </div>
+    </header>
+
+    <!--Accordion-->
+    <section class="accordion-container container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <!--Accordion template from Bootstrap and tailored to my requirements-->
+                <div class="accordion" id="accordion">
+                    
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed text-uppercase" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Aim of the game
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                Replicate the displayed sequence. A new step is added to the sequence with each round, which makes the game progressively difficult.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed text-uppercase" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    How to play
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                Press <em class="text-uppercase"><q>Start</q></em> to start the game and initiate the sequence.<br/>
+                                Repeat the pattern shown to progress through the rounds.<br/>
+                                Successfully complete 10 rounds to win the game and be notified of your victory.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed text-uppercase" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Game modes
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                                <em class="text-uppercase"><q>Default</q></em> Mode: If you make a mistake, the previous pattern is repeated, giving you another chance to get it right.<br/>
+                                <em class="text-uppercase"><q>Strict</q></em> Mode: No second chances! If you make a mistake, the whole game restarts.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Game board-->
+    <section class="game-container container-fluid">
+        <div class="row">
+            <div class="game-options-wrapper col-4 text-right">
+                <button id="reset-btn" class="game-option-btn">Reset</button>
+            </div>
+            <div class="game-options-wrapper col-4 text-center">
+                <button id="start-btn" class="game-option-btn">Start</button>
+            </div>
+            <div class="game-options-wrapper col-4 text-left">
+                <button id="strict-btn" class="game-option-btn">Strict</button>
+            </div>
+            <div class="round-wrapper col-10 offset-1 text-center text-uppercase">
+                <div class="round-display">
+                    <h4 id="round-text">Round</h4>
+                    <h4 id="round-num">--</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-8 offset-sm-2 col-lg-10 offset-lg-1">
+                <div class="row">
+                    <!--Buttons-->
+                    <div class="game-btn-wrapper col-6 col-lg-3">
+                        <div class="game-btn">
+                            <button id="yellow-btn" class="yellow"></button>
+                        </div>
+                    </div>
+                    <div class="game-btn-wrapper col-6 col-lg-3">
+                        <div class="game-btn">
+                            <button id="red-btn" class="red"></button>
+                        </div>
+                    </div>
+                    <div class="game-btn-wrapper col-6 col-lg-3">
+                        <div class="game-btn">
+                            <button id="green-btn" class="green"></button>
+                        </div>
+                    </div>
+                    <div class="game-btn-wrapper col-6 col-lg-3">
+                        <div class="game-btn">
+                            <button id="blue-btn" class="blue"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    
-    
-    <!--jQuery CDN and script link to my js files-->
+    <!--Footer (my name - link to my GitHub)-->
+    <footer class="footer-container container-fluid text-center">
+        <h6 class="footer-text">Created by 
+            <a href="https://github.com/hebs87" target="_blank">Sunny Hebbar</a>        
+        </h6>
+    </footer>
+
+    <!--jQuery, bootstrap.js CDNs and script link to my js files-->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
 
 </body>
