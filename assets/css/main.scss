@@ -24,7 +24,12 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom right, red, blue, yellow, green);
+    background: {
+        /*Got sample code from W3C and tailored it to my requirements*/
+        /*image: linear-gradient(to bottom right, red, blue, yellow, green);
+        repeat: no-repeat;*/
+        color: #252525;
+    }
 }
 
 .nav-container {
@@ -43,9 +48,9 @@ body {
             family: "Orbitron", sans-serif;
             weight: 700;
         }
-        color: #6b0000;
+        color: #ff1810;
         letter-spacing: 2px;
-        text-shadow: 2px 2px 1px slategray, -2px -2px 1px slategray;
+        text-shadow: 2px 2px 1px #fafafa, -2px -2px 1px #fafafa;
     }
     a:hover {
         text-decoration: none;
@@ -72,23 +77,23 @@ body {
 .accordion {
     button {
         @include headerFont {
-            color: #6b0000;
-            text-shadow: 1px 1px 1px slategray;
+            color: #ff1810;
+            text-shadow: 1px 1px 1px #fafafa;
         }
     }
     button:hover,
     button:focus {
         text-decoration: none;
-        color: #6b0000;
+        color: #ff1810;
     }
     .card-body {
         font: {
             family: "Orbitron", sans-serif;
             weight: 300;
         }
-        color: #6b0000;
+        color: #ff1810;
         letter-spacing: 1px;
-        text-shadow: 1px 1px 1px slategray;
+        text-shadow: 1px 1px 1px #fafafa;
     }
 }
 
@@ -150,52 +155,52 @@ button:focus {
     outline: none;
 }
 
-.yellow {
+#yellow-btn {
     @include gameBtnStyle {
         background-color: #d2d200;
     }
 }
 
-.red {
+#red-btn {
     @include gameBtnStyle {
         background-color: #b10000;
     }
 }
 
-.green {
+#green-btn {
     @include gameBtnStyle {
         background-color: #008000;
     }
 }
 
-.blue {
+#blue-btn {
     @include gameBtnStyle {
         background-color: #00009a;
     }
 }
 
-.yellow-lit {
+#yellow-btn.lit {
     background-color: #ffff00;
 }
 
-.red-lit {
+#red-btn.lit {
     background-color: #ff0000;
 }
 
-.green-lit {
+#green-btn.lit {
     background-color: #00ff00;
 }
 
-.blue-lit {
+#blue-btn.lit {
     background-color: #0000ff;
 }
 
 .footer-text {
     @include headerFont {
         padding: 5px;
-        color: #6b0000;
+        color: #ff1810;
     }
-    text-shadow: 1px 1px 1px slategray;
+    text-shadow: 1px 1px 1px #fafafa;
 }
 
 .footer-text {

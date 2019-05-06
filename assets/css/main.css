@@ -2,7 +2,10 @@
 @import url("https://fonts.googleapis.com/css?family=Orbitron:100,200,300,400,500,600,700,800,900");
 /*Mixins*/
 body {
-  background-image: linear-gradient(to bottom right, red, blue, yellow, green); }
+  /*Got sample code from W3C and tailored it to my requirements*/
+  /*image: linear-gradient(to bottom right, red, blue, yellow, green);
+  repeat: no-repeat;*/
+  background-color: #252525; }
 
 .nav-container {
   margin-top: 10px;
@@ -15,9 +18,9 @@ body {
 .nav-heading a {
   font-family: "Orbitron", sans-serif;
   font-weight: 700;
-  color: #6b0000;
+  color: #ff1810;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 1px slategray, -2px -2px 1px slategray; }
+  text-shadow: 2px 2px 1px #fafafa, -2px -2px 1px #fafafa; }
 .nav-heading a:hover {
   text-decoration: none; }
 
@@ -38,18 +41,18 @@ body {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
-  color: #6b0000;
-  text-shadow: 1px 1px 1px slategray; }
+  color: #ff1810;
+  text-shadow: 1px 1px 1px #fafafa; }
 .accordion button:hover,
 .accordion button:focus {
   text-decoration: none;
-  color: #6b0000; }
+  color: #ff1810; }
 .accordion .card-body {
   font-family: "Orbitron", sans-serif;
   font-weight: 300;
-  color: #6b0000;
+  color: #ff1810;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 1px slategray; }
+  text-shadow: 1px 1px 1px #fafafa; }
 
 .game-container .game-options-wrapper {
   margin-top: 20px; }
@@ -100,7 +103,7 @@ body {
 button:focus {
   outline: none; }
 
-.yellow {
+#yellow-btn {
   height: 75%;
   width: 75%;
   border-radius: 50%;
@@ -114,7 +117,7 @@ button:focus {
   margin: auto;
   background-color: #d2d200; }
 
-.red {
+#red-btn {
   height: 75%;
   width: 75%;
   border-radius: 50%;
@@ -128,7 +131,7 @@ button:focus {
   margin: auto;
   background-color: #b10000; }
 
-.green {
+#green-btn {
   height: 75%;
   width: 75%;
   border-radius: 50%;
@@ -142,7 +145,7 @@ button:focus {
   margin: auto;
   background-color: #008000; }
 
-.blue {
+#blue-btn {
   height: 75%;
   width: 75%;
   border-radius: 50%;
@@ -156,16 +159,16 @@ button:focus {
   margin: auto;
   background-color: #00009a; }
 
-.yellow-lit {
+#yellow-btn.lit {
   background-color: #ffff00; }
 
-.red-lit {
+#red-btn.lit {
   background-color: #ff0000; }
 
-.green-lit {
+#green-btn.lit {
   background-color: #00ff00; }
 
-.blue-lit {
+#blue-btn.lit {
   background-color: #0000ff; }
 
 .footer-text {
@@ -173,8 +176,8 @@ button:focus {
   font-weight: 600;
   letter-spacing: 1px;
   padding: 5px;
-  color: #6b0000;
-  text-shadow: 1px 1px 1px slategray; }
+  color: #ff1810;
+  text-shadow: 1px 1px 1px #fafafa; }
 
 .footer-text a:hover,
 .footer-text a:focus {
