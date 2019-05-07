@@ -16,6 +16,18 @@ $(function () {
     const winGameSound = new Audio("assets/sounds/win-game.mp3");
     const loseGameSound = new Audio("assets/sounds/lose-game.mp3");
     
+    //Game button variables
+    let gameBtns = [
+        "yellow-btn",
+        "red-btn",
+        "green-btn",
+        "blue-btn"
+    ];
+    const powerBtn = document.getElementById("power-btn");
+    const startBtn = document.getElementById("start-btn");
+    const strictBtn = document.getElementById("strict-btn");
+    const roundNum = document.getElementById("round-num");
+    
 
     
 });
