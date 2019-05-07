@@ -6,7 +6,7 @@ $(function () {
         $(this).children('.fas').toggleClass('fa-chevron-up fa-chevron-down');
     });
     
-    //Sound Variables
+    //-----------------------------------------------------------Sound Variables
     const yellowBtnSound = new Audio("assets/sounds/yellow-btn.mp3");
     const redBtnSound = new Audio("assets/sounds/red-btn.mp3");
     const greenBtnSound = new Audio("assets/sounds/green-btn.mp3");
@@ -16,7 +16,7 @@ $(function () {
     const winGameSound = new Audio("assets/sounds/win-game.mp3");
     const loseGameSound = new Audio("assets/sounds/lose-game.mp3");
     
-    //Game button variables
+    //-----------------------------------------------------Game button variables
     let gameBtns = [
         "yellow-btn",
         "red-btn",
@@ -28,16 +28,47 @@ $(function () {
     const strictBtn = document.getElementById("strict-btn");
     const roundNum = document.getElementById("round-num");
     
-    //Variables
+    //-----------------------------------------------------------------Variables
     let cpuSequence = []; //CPU sequence
     let userSequence = []; //User sequence
     let round = 0; //Round number
 
-    //User's sequence
+    //-----------------------------------------------------------User's sequence
     
+    //Add event listeners to each game button
+    $("#yellow-btn").click(function() {
+        checkUserInput(0);
+    });
     
-    //CPU's sequence
+    $("#red-btn").click(function() {
+        checkUserInput(1);
+    });
     
+    $("#green-btn").click(function() {
+        checkUserInput(2);
+    });
+    
+    $("#blue-btn").click(function() {
+        checkUserInput(3);
+    });
+    
+    //Checks the user input value and determines if it is correct
+    function checkUserInput(id) {
+        //lights the btn and plays the sound
+        pressBtn(id);
+    }
+    
+    //Plays the sound and adds class when relevant game button is pressed - passes the value into checkUserInput() function
+    function pressBtn(id) {
+        playBtnSound(id);
+        $("#" + gameBtns[id]).addClass("lit");
+        //setTimeout() method background information from w3schools.com
+        setTimeout(function() {
+            $("#" + gameBtns[id]).removeClass("lit");
+        }, 500);
+    }
+    
+    //------------------------------------------------------------CPU's sequence
     $(startBtn).click(function() {
         round++;
         startCpuSequence();
@@ -66,7 +97,7 @@ $(function () {
     
     //Show CPU sequence function, which adds class when button is lit and removes class when timeout interval is reached
     function showCpuSequence(i) {
-        playSound(cpuSequence[i]);
+        playBtnSound(cpuSequence[i]);
         $("#" + gameBtns[cpuSequence[i]]).addClass("lit");
         //setTimeout() method background information from w3schools.com
         setTimeout(function() {
@@ -75,7 +106,7 @@ $(function () {
     }
     
     //playSound function, which plays sounds that correspond to the particular button
-    function playSound(button) {
+    function playBtnSound(button) {
         switch(button) {
             case 0:
                 yellowBtnSound.play();
