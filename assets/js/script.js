@@ -28,6 +28,69 @@ $(function () {
     const strictBtn = document.getElementById("strict-btn");
     const roundNum = document.getElementById("round-num");
     
+    //Variables
+    let cpuSequence = []; //CPU sequence
+    let userSequence = []; //User sequence
+    let round = 0; //Round number
 
+    //User's sequence
+    
+    
+    //CPU's sequence
+    
+    $(startBtn).click(function() {
+        round++;
+        startCpuSequence();
+    });
+    
+    function startCpuSequence() {
+        console.log(round);
+        $(roundNum).text(round);
+        getNewMove();
+        let i = 0;
+        //setInterval() method background information from w3schools.com
+        let interval = setInterval(function() {
+            showCpuSequence(i);
+            i++;
+            if (i >= cpuSequence.length) {
+                clearInterval(interval);
+            }
+        }, 1000); //Function should execute every 1 second
+    }
+    
+    //Generate random number - sample code from freecodecamp.org and tailored it to my requirements
+    function getNewMove() {
+        let newMove = Math.floor(Math.random() * 4 );
+        cpuSequence.push(newMove);
+    }
+    
+    //Show CPU sequence function, which adds class when button is lit and removes class when timeout interval is reached
+    function showCpuSequence(i) {
+        playSound(cpuSequence[i]);
+        $("#" + gameBtns[cpuSequence[i]]).addClass("lit");
+        //setTimeout() method background information from w3schools.com
+        setTimeout(function() {
+            $("#" + gameBtns[cpuSequence[i]]).removeClass("lit");
+        }, 500);
+    }
+    
+    //playSound function, which plays sounds that correspond to the particular button
+    function playSound(button) {
+        switch(button) {
+            case 0:
+                yellowBtnSound.play();
+                break;
+            case 1:
+                redBtnSound.play();
+                break;
+            case 2:
+                greenBtnSound.play();
+                break;
+            case 3:
+                blueBtnSound.play();
+                break;
+        }
+    }
+    
     
 });
