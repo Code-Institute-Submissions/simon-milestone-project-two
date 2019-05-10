@@ -77,4 +77,13 @@ $(function() {
         }
     });
     
+    //--------------------------------------------------------------Start Button
+    $(startBtn).click(function() {
+        //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
+        if (power || win) {
+            //startGame();
+            
+        }
+    });
+    
 });
