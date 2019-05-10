@@ -48,9 +48,11 @@ $(function() {
             //Text changes to "ON" when the power is turned off again
             $(powerBtn).text(`ON`);
             $(roundNum).text("");
-            // //Deactivate the game board and disable all game buttons
+            //Deactivate the game board and disable all game buttons
             //resetColor();
             clearInterval(intervalId);
+            //Sets the strict button to false if it strict mode was on during gameplay
+            strict = false;
         }
         else {
             power = true;
@@ -59,6 +61,20 @@ $(function() {
             $(roundNum).text(`--`);
         }
         console.log("power", power);
+    });
+    
+    //-------------------------------------------------------------Strict Button
+    $(strictBtn).click(function() {
+        $(strictBtn).toggleClass("game-option-btn-on");
+        if (power) {
+            if (strict) {
+                strict = false;
+            }
+            else {
+                strict = true;
+            }
+            console.log("strict", strict);
+        }
     });
     
 });
