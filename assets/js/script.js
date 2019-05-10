@@ -40,6 +40,25 @@ $(function() {
     let power = false; //Game is off as a default so power variable is set to false
     let win; //Determines if the player has won the game or not
     
-    
+    //--------------------------------------------------------------Power Button
+    $(powerBtn).click(function() {
+        $(powerBtn).toggleClass("game-option-btn-on");
+        if (power) {
+            power = false;
+            //Text changes to "ON" when the power is turned off again
+            $(powerBtn).text(`ON`);
+            $(roundNum).text("");
+            // //Deactivate the game board and disable all game buttons
+            //resetColor();
+            clearInterval(intervalId);
+        }
+        else {
+            power = true;
+            //Text changes to "OFF" when the power is on
+            $(powerBtn).text(`OFF`);
+            $(roundNum).text(`--`);
+        }
+        console.log("power", power);
+    });
     
 });
