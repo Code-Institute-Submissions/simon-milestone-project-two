@@ -41,6 +41,7 @@ $(function() {
     let win; //Determines if the player has won the game or not
     
     //--------------------------------------------------------------Power Button
+    
     $(powerBtn).click(function() {
         $(powerBtn).toggleClass("game-option-btn-on");
         if (power) {
@@ -51,8 +52,11 @@ $(function() {
             //Deactivate the game board and disable all game buttons
             resetColor();
             clearInterval(intervalId);
-            //Sets the strict button to false if it strict mode was on during gameplay
-            strict = false;
+            //Sets the strict button to false if strict mode was on during gameplay
+            if (strict) {
+                strict = false;
+                $(strictBtn).removeClass("game-option-btn-on");
+            }
         }
         else {
             power = true;
@@ -64,6 +68,7 @@ $(function() {
     });
     
     //-------------------------------------------------------------Strict Button
+    
     $(strictBtn).click(function() {
         $(strictBtn).toggleClass("game-option-btn-on");
         if (power) {
@@ -78,13 +83,91 @@ $(function() {
     });
     
     //--------------------------------------------------------------Start Button
+    
     $(startBtn).click(function() {
         //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
         if (power || win) {
-            //startGame();
+            startGame();
             
         }
     });
+    
+    //------------------------------------------------------------Game Functions
+    
+    //Function to start the game
+    function startGame() {
+        win = false;
+        cpuSequence = [];
+        userSequence = [];
+        flash = 0;
+        intervalId = 0;
+        round = 1;
+        $(roundNum).text(round);
+        correct = true;
+        getNewMove();
+        cpuTurn = true;
+        //Ensures that the cpuAttempt function runs every 1 second
+        intervalId = setInterval(cpuAttempt, 1000);
+    }
+    
+    //Function to generate the random array of cpu sequences - passed into the startGame function
+    function getNewMove() {
+        for (var i = 0; i < 20; i++) {
+            let newMove = Math.floor(Math.random() * 4);
+            cpuSequence.push(newMove);
+            console.log(cpuSequence);
+        }
+    }
+    
+    //Function that determines when it is the CPU's turn or the user's turn
+    function cpuAttempt() {
+        //Deactivates the buttons
+        power = false;
+        
+        //If the number of flashes in the round equals the round number, it will be the user's turn
+        if (flash == round) {
+            clearInterval(intervalId);
+            cpuTurn = false;
+            resetColor();
+            power = true;
+        }
+        
+        //This if statement will run if it is the CPU's turn and there will be a gap of 500 milliseconds between each flash
+        if (cpuTurn) {
+            resetColor();
+            setTimeout(function() {
+                //If the cpuSequence in the array equals 0, it will run the flashYellowBtn function
+                playBtnEffects(cpuSequence[flash]);
+                //Increment the flash count each time the function runs and
+                flash++;
+            }, 500);
+        }
+    }
+    
+    //Plays the button effect for the corresponding case number in the cpuSequence[flash] array
+    function playBtnEffects(id) {
+        if (sound) {
+            switch (id) {
+                case 0:
+                    $(yellowBtn).addClass("lit");
+                    yellowBtnSound.play();
+                    break;
+                case 1:
+                    $(redBtn).addClass("lit");
+                    redBtnSound.play();
+                    break;
+                case 2:
+                    $(greenBtn).addClass("lit");
+                    greenBtnSound.play();
+                    break;
+                case 3:
+                    $(blueBtn).addClass("lit");
+                    blueBtnSound.play();
+                    break;
+            }
+            sound = true;
+        }
+    }
     
     //Resets the button colors to the original colors
     function resetColor() {
@@ -93,5 +176,7 @@ $(function() {
         $(greenBtn).removeClass("lit");
         $(blueBtn).removeClass("lit");
     }
+    
+    
     
 });
