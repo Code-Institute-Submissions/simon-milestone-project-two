@@ -49,7 +49,7 @@ $(function() {
             $(powerBtn).text(`ON`);
             $(roundNum).text("");
             //Deactivate the game board and disable all game buttons
-            //resetColor();
+            resetColor();
             clearInterval(intervalId);
             //Sets the strict button to false if it strict mode was on during gameplay
             strict = false;
@@ -85,5 +85,13 @@ $(function() {
             
         }
     });
+    
+    //Resets the button colors to the original colors
+    function resetColor() {
+        $(yellowBtn).removeClass("lit");
+        $(redBtn).removeClass("lit");
+        $(greenBtn).removeClass("lit");
+        $(blueBtn).removeClass("lit");
+    }
     
 });
