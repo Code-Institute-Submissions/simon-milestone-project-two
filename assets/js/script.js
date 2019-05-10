@@ -177,6 +177,35 @@ $(function() {
         $(blueBtn).removeClass("lit");
     }
     
-    
+    //Play sounds and light when user clicks on the buttons
+    $(yellowBtn).click(function() {
+        addUserSequence(0);
+    });
+
+    $(redBtn).click(function() {
+        addUserSequence(1);
+    });
+
+    $(greenBtn).click(function() {
+        addUserSequence(2);
+    });
+
+    $(blueBtn).click(function() {
+        addUserSequence(3);
+    });
+
+    //Function to play corresponding sound and light when relevant button is clicked
+    function addUserSequence(id) {
+        if (power) {
+            userSequence.push(id);
+            //checkUserInput();
+            playBtnEffects(id);
+            if (!win) {
+                setTimeout(function() {
+                    resetColor();
+                }, 500);
+            }
+        }
+    }
     
 });
