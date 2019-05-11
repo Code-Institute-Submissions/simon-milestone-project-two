@@ -7,10 +7,10 @@ $(function() {
     });
     
     //-----------------------------------------------------------Sound Variables
-    const yellowBtnSound = new Audio("assets/sounds/yellow-btn.mp3");
-    const redBtnSound = new Audio("assets/sounds/red-btn.mp3");
-    const greenBtnSound = new Audio("assets/sounds/green-btn.mp3");
-    const blueBtnSound = new Audio("assets/sounds/blue-btn.mp3");
+    const yellowBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+    const redBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+    const greenBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+    const blueBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
     const clickOnSound = new Audio("assets/sounds/click-on.mp3");
     const clickOffSound = new Audio("assets/sounds/click-off.mp3");
     const winGameSound = new Audio("assets/sounds/win-game.mp3");
@@ -39,6 +39,7 @@ $(function() {
     let sound = true; //Ensures that the sound is on when the game is being played
     let power = false; //Game is off as a default so power variable is set to false
     let win; //Determines if the player has won the game or not
+    let strike = 0; //Determines number of strikes in the game - increments with incorrect user input - allows one mistake in normal mode
     
     //--------------------------------------------------------------Power Button
     
@@ -47,6 +48,7 @@ $(function() {
         if (power) {
             power = false;
             //Text changes to "ON" when the power is turned off again
+            clickOffSound.play();
             $(powerBtn).text(`ON`);
             $(roundNum).text("");
             //Deactivate the game board and disable all game buttons
@@ -61,6 +63,7 @@ $(function() {
         else {
             power = true;
             //Text changes to "OFF" when the power is on
+            clickOnSound.play();
             $(powerBtn).text(`OFF`);
             $(roundTxt).text(`ROUND`);
             $(roundNum).text(`--`);
@@ -74,9 +77,11 @@ $(function() {
         $(strictBtn).toggleClass("game-option-btn-on");
         if (power) {
             if (strict) {
+                clickOffSound.play();
                 strict = false;
             }
             else {
+                clickOnSound.play();
                 strict = true;
             }
             console.log("strict", strict);
@@ -88,9 +93,9 @@ $(function() {
     $(startBtn).click(function() {
         //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
         if (power || win) {
+            clickOnSound.play();
             $(roundTxt).text(`ROUND`);
             startGame();
-            
         }
     });
     
@@ -237,16 +242,22 @@ $(function() {
                     startGame();
                 }
                 else {
-                    //Round is repeated if not in strict mode
-                    //*****************************************REFACTOR*****************************************
-                    cpuTurn = true;
-                    flash = 0;
-                    userSequence = [];
-                    correct = true;
-                    intervalId = setInterval(cpuAttempt, 1000);
+                    //If not in strict mode and strike is less than 2, round is repeated; if strike is 2, the game restarts
+                    strike++;
+                    console.log(strike);
+                    if (strike < 2) {    
+                        //*****************************************REFACTOR*****************************************
+                        cpuTurn = true;
+                        flash = 0;
+                        userSequence = [];
+                        correct = true;
+                        intervalId = setInterval(cpuAttempt, 1000);
+                    } else {
+                        startGame();
+                    }
                 }
             }, 1000);
-
+            
         }
 
         //This statement executes if the user gets the sequence correct, but hasn't won the game
@@ -279,6 +290,5 @@ $(function() {
         power = false;
         win = true;
     }
-    
     
 });
