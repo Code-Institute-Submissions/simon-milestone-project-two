@@ -62,6 +62,7 @@ $(function() {
             power = true;
             //Text changes to "OFF" when the power is on
             $(powerBtn).text(`OFF`);
+            $(roundTxt).text(`ROUND`);
             $(roundNum).text(`--`);
         }
         console.log("power", power);
@@ -87,6 +88,7 @@ $(function() {
     $(startBtn).click(function() {
         //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
         if (power || win) {
+            $(roundTxt).text(`ROUND`);
             startGame();
             
         }
@@ -217,8 +219,8 @@ $(function() {
         }
         
         //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
-        if (userSequence.length == 20 && correct) {
-            //userWin();
+        if (userSequence.length == 3 && correct) {
+            userWin();
         }
         
         if (correct == false) {
@@ -259,6 +261,24 @@ $(function() {
         }
     }
     
+    //lightAll function will be called if user enters wrong sequence or user wins the game
+    function lightAll() {
+        $(yellowBtn).addClass("lit");
+        $(redBtn).addClass("lit");
+        $(greenBtn).addClass("lit");
+        $(blueBtn).addClass("lit");
+    }
+    
+    //Function called when user wins the game
+    function userWin() {
+        lightAll();
+        winGameSound.play();
+        $(startBtn).text(`START`);
+        $(roundTxt).text(`CONGRATULATIONS!`);
+        $(roundNum).text(`YOU WIN!`);
+        power = false;
+        win = true;
+    }
     
     
 });
