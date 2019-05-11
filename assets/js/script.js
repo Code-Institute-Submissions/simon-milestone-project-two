@@ -105,16 +105,12 @@ $(function() {
     function startGame() {
         win = false;
         cpuSequence = [];
-        userSequence = [];
-        flash = 0;
         intervalId = 0;
         round = 1;
         $(roundNum).text(round);
         correct = true;
         getNewMove();
-        cpuTurn = true;
-        //Ensures that the cpuAttempt function runs every 1 second
-        intervalId = setInterval(cpuAttempt, 1000);
+        sharedStatements();
     }
     
     //Function to generate the random array of cpu sequences - passed into the startGame function
@@ -246,12 +242,8 @@ $(function() {
                     strike++;
                     console.log(strike);
                     if (strike < 2) {    
-                        //*****************************************REFACTOR*****************************************
-                        cpuTurn = true;
-                        flash = 0;
-                        userSequence = [];
+                        sharedStatements();
                         correct = true;
-                        intervalId = setInterval(cpuAttempt, 1000);
                     } else {
                         startGame();
                     }
@@ -263,12 +255,8 @@ $(function() {
         //This statement executes if the user gets the sequence correct, but hasn't won the game
         if (round == userSequence.length && correct && !win) {
             round++;
-            //*****************************************REFACTOR*****************************************
-            userSequence = [];
-            cpuTurn = true;
-            flash = 0;
             $(roundNum).text(round);
-            intervalId = setInterval(cpuAttempt, 1000);
+            sharedStatements();
         }
     }
     
@@ -289,6 +277,14 @@ $(function() {
         $(roundNum).text(`YOU WIN!`);
         power = false;
         win = true;
+    }
+    
+    function sharedStatements() {
+        cpuTurn = true;
+        flash = 0;
+        userSequence = [];
+        //Ensures that the cpuAttempt function runs every 1 second
+        intervalId = setInterval(cpuAttempt, 1000);
     }
     
 });
