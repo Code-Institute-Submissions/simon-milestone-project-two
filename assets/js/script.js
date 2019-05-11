@@ -198,7 +198,7 @@ $(function() {
     function addUserSequence(id) {
         if (power) {
             userSequence.push(id);
-            //checkUserInput();
+            checkUserInput();
             playBtnEffects(id);
             if (!win) {
                 setTimeout(function() {
@@ -207,5 +207,58 @@ $(function() {
             }
         }
     }
+    
+    //Plays the sound and adds class when relevant game button is pressed
+    function checkUserInput() {
+        //Verifies userSequence against the cpuSequence
+        if (userSequence[userSequence.length - 1] !== cpuSequence[userSequence.length - 1]) {
+            //Sequence is incorrect
+            correct = false;
+        }
+        
+        //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
+        if (userSequence.length == 20 && correct) {
+            //userWin();
+        }
+        
+        if (correct == false) {
+            //All lights flash, loseGameSound plays and roundNum text changes to "WRONG, TRY AGAIN for 500 milliseconds, then reverts back to round number"
+            lightAll();
+            $(roundNum).text(`WRONG, TRY AGAIN!`);
+            setTimeout(function() {
+                $(roundNum).text(round);
+                resetColor();
+                loseGameSound.play();
+                
+                //If in strict mode, game restarts
+                if (strict) {
+                    startGame();
+                }
+                else {
+                    //Round is repeated if not in strict mode
+                    //*****************************************REFACTOR*****************************************
+                    cpuTurn = true;
+                    flash = 0;
+                    userSequence = [];
+                    correct = true;
+                    intervalId = setInterval(cpuAttempt, 1000);
+                }
+            }, 1000);
+
+        }
+
+        //This statement executes if the user gets the sequence correct, but hasn't won the game
+        if (round == userSequence.length && correct && !win) {
+            round++;
+            //*****************************************REFACTOR*****************************************
+            userSequence = [];
+            cpuTurn = true;
+            flash = 0;
+            $(roundNum).text(round);
+            intervalId = setInterval(cpuAttempt, 1000);
+        }
+    }
+    
+    
     
 });
