@@ -2,9 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Orbitron:100,200,300,400,500,600,700,800,900");
 /*Mixins*/
 body {
-  /*Got sample code from W3C and tailored it to my requirements*/
-  /*image: linear-gradient(to bottom right, red, blue, yellow, green);
-  repeat: no-repeat;*/
   background-color: #252525; }
 
 .row {
@@ -12,7 +9,6 @@ body {
 
 .nav-container {
   margin-top: 10px;
-  margin-bottom: 10px;
   padding: 0; }
 
 .nav-heading {
@@ -27,36 +23,62 @@ body {
 .nav-heading a:hover {
   text-decoration: none; }
 
-.accordion-container {
-  padding: 0; }
-
-.card {
-  border-radius: 0;
-  background: none; }
-
-.card-header {
-  padding: 0; }
-
-.card-body {
-  padding: 10px 20px; }
-
-.accordion button {
+.nav-wrapper .btn {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   color: #ff1810;
-  text-shadow: 1px 1px 1px #fafafa; }
-.accordion button:hover,
-.accordion button:focus {
+  text-shadow: 1px 1px 1px #fafafa;
+  background: none;
+  border: none;
+  margin-top: 5px;
+  padding: 0; }
+.nav-wrapper .btn:hover,
+.nav-wrapper .btn:focus {
   text-decoration: none;
-  color: #ff1810; }
-.accordion .card-body {
-  font-family: "Orbitron", sans-serif;
-  font-weight: 300;
   color: #ff1810;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 1px #fafafa; }
+  background: none;
+  border: none;
+  box-shadow: none; }
 
+/*.accordion-container {
+    padding: 0;
+}*/
+/*.card {
+    border-radius: 0;
+    background: none;
+}
+
+.card-header {
+    padding: 0;
+}
+
+.card-body {
+    padding: 10px 20px;
+}
+
+.accordion {
+    button {
+        @include headerFont {
+            color: #ff1810;
+            text-shadow: 1px 1px 1px #fafafa;
+        }
+    }
+    button:hover,
+    button:focus {
+        text-decoration: none;
+        color: #ff1810;
+    }
+    .card-body {
+        font: {
+            family: "Orbitron", sans-serif;
+            weight: 300;
+        }
+        color: #ff1810;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 1px #fafafa;
+    }
+}*/
 .game-container .game-options-wrapper {
   margin-top: 20px; }
 .game-container .game-option-btn {
@@ -185,5 +207,23 @@ button:focus {
 .footer-text a:hover,
 .footer-text a:focus {
   text-decoration: none; }
+
+.modal-content {
+  background-color: #252525; }
+
+.modal-header-title,
+.modal-body-title,
+.close {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ff1810;
+  text-shadow: 1px 1px 1px #fafafa; }
+
+.modal-body-text {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 300;
+  color: #ff1810;
+  letter-spacing: 1px; }
 
 /*# sourceMappingURL=main.css.map */

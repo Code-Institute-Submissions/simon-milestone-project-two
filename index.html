@@ -10,7 +10,7 @@
     <!--This is the link to Bootstrap, which will make up the basis of the styles for my site-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--This is the link to font awesome, which I will use for any icons in my site-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--This is my custom stylesheet, which I will use to apply further style to my elements, and to link google fonts to my site-->
     <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
 
@@ -22,16 +22,21 @@
     <header class="nav-container container-fluid text-center">
         <div class="nav-wrapper row">
             <div class="col-12">
-                <h1 class="nav-heading text-uppercase"><a href="/">Simon Game</a></h1>
+                <h1 class="nav-heading text-uppercase"><a href="index.html">Simon Game</a></h1>
+            </div>
+            <div class="col-12">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#intructionsModal">
+                <h3><i class="far fa-question-circle"></i></h3>
+            </button>
             </div>
         </div>
     </header>
 
-    <!--Accordion-->
+    <!--Accordion
     <section class="accordion-container container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                <!--Accordion template from Bootstrap and tailored to my requirements-->
+                Accordion template from Bootstrap and tailored to my requirements
                 <div class="accordion" id="accordion">
                     
                     <div class="card">
@@ -88,7 +93,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!--Game board-->
     <section class="game-container container-fluid">
@@ -138,13 +143,55 @@
             </div>
         </div>
     </section>
-    
+
     <!--Footer (my name - link to my GitHub)-->
     <footer class="footer-container container-fluid text-center">
-        <h6 class="footer-text">Created by 
-            <a href="https://github.com/hebs87" target="_blank">Sunny Hebbar</a>        
+        <h6 class="footer-text">Created by
+            <a href="https://github.com/hebs87" target="_blank">Sunny Hebbar</a>
         </h6>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="intructionsModal" tabindex="-1" role="dialog" aria-labelledby="intructionsModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-header-title" id="modalTitle">Instructions</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-body-title">Aim of the game</h4>
+                        <p class="modal-body-text">
+                            Replicate the displayed sequence. A new step is added to the sequence with each round, which makes the game 
+                            progressively difficult.
+                        </p>
+                    <h4 class="modal-body-title">How to play</h4>
+                        <p class="modal-body-text">
+                            Press <em class="text-uppercase"><q>On</q></em> to activate the game board.<br/>
+                        </p>
+                        <p class="modal-body-text">
+                            Press <em class="text-uppercase"><q>Start</q></em> to start the game and initiate the sequence.<br/>
+                        </p>
+                        <p class="modal-body-text">
+                            Repeat the pattern shown to progress through the rounds.<br/>
+                        </p>
+                        <p class="modal-body-text">
+                            Successfully complete 20 rounds to win the game and be notified of your victory.
+                        </p>
+                    <h4 class="modal-body-title">Game modes</h4>
+                        <p class="modal-body-text">
+                            <em class="text-uppercase"><q>Default</q></em> Mode: If you make a mistake, the previous pattern is repeated, 
+                            giving you another chance to get it right. If you make a second mistake, the game will restart.<br/>
+                        </p>
+                        <p class="modal-body-text">
+                            <em class="text-uppercase"><q>Strict</q></em> Mode: No second chances! If you make a mistake, the whole game restarts.
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--jQuery, bootstrap.js CDNs and script link to my js files-->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>

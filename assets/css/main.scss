@@ -24,12 +24,7 @@
 }
 
 body {
-    background: {
-        /*Got sample code from W3C and tailored it to my requirements*/
-        /*image: linear-gradient(to bottom right, red, blue, yellow, green);
-        repeat: no-repeat;*/
-        color: #252525;
-    }
+    background-color: #252525;
 }
 
 .row {
@@ -38,7 +33,6 @@ body {
 
 .nav-container {
     margin-top: 10px;
-    margin-bottom: 10px;
     padding: 0;
 }
 
@@ -61,11 +55,33 @@ body {
     }
 }
 
-.accordion-container {
-    padding: 0;
+.nav-wrapper {
+    .btn {
+        @include headerFont {
+            color: #ff1810;
+            text-shadow: 1px 1px 1px #fafafa;
+            background: none;
+            border: none;
+            margin-top: 5px;
+            padding: 0;
+        }
+    }
+    .btn:hover,
+    .btn:focus {
+        text-decoration: none;
+        color: #ff1810;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
 }
 
-.card {
+
+/*.accordion-container {
+    padding: 0;
+}*/
+
+/*.card {
     border-radius: 0;
     background: none;
 }
@@ -99,7 +115,7 @@ body {
         letter-spacing: 1px;
         text-shadow: 1px 1px 1px #fafafa;
     }
-}
+}*/
 
 .game-container {
     .game-options-wrapper {
@@ -214,3 +230,25 @@ button:focus {
     }
 }
 
+.modal-content {
+    background-color: #252525;
+}
+
+.modal-header-title,
+.modal-body-title,
+.close {
+    @include headerFont {
+        color: #ff1810;
+        text-shadow: 1px 1px 1px #fafafa;
+    }
+}
+
+.modal-body-text {
+    font: {
+            family: "Orbitron", sans-serif;
+            weight: 300;
+        }
+    color: #ff1810;
+    letter-spacing: 1px;
+    // text-shadow: 1px 1px 1px #fafafa;
+}
