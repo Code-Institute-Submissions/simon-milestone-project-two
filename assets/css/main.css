@@ -79,6 +79,10 @@ body {
         text-shadow: 1px 1px 1px #fafafa;
     }
 }*/
+.game-container,
+.game-btn-container {
+  padding: 0; }
+
 .game-container .game-options-wrapper {
   margin-top: 20px; }
 .game-container .game-option-btn {
@@ -219,6 +223,9 @@ button:focus {
   letter-spacing: 1px;
   color: #ff1810;
   text-shadow: 1px 1px 1px #fafafa; }
+
+.close:hover {
+  color: #ff1810; }
 
 .modal-body-text {
   font-family: "Orbitron", sans-serif;
