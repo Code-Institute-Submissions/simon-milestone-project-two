@@ -79,9 +79,9 @@ body {
 
 /*.accordion-container {
     padding: 0;
-}*/
+}
 
-/*.card {
+.card {
     border-radius: 0;
     background: none;
 }
@@ -135,12 +135,14 @@ body {
             border-radius: 10px;
             border-color: slategray;
             width: 100px;
+            height: 30px;
             vertical-align: -webkit-baseline-middle;
         }
     }
     .round-display {
         margin-top: 20px;
         border-radius: 20px;
+        height: 82px;
         background-color: #6b0000;
         color: #ff1810;
         border: outset 3px slategray;
@@ -157,11 +159,7 @@ body {
 #start-btn {
     width: inherit;
     padding: 7px;
-}
-
-.game-option-btn-on {
-    background-color: #ff1810;
-    color: #6b0000;
+    height: 42px;
 }
 
 .game-btn-wrapper {
