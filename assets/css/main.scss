@@ -239,7 +239,8 @@ button:focus {
 
 .modal-header-title,
 .modal-body-title,
-.close {
+.close,
+#modal-btn {
     @include headerFont {
         color: #ff1810;
         text-shadow: 1px 1px 1px #fafafa;

@@ -217,7 +217,8 @@ button:focus {
 
 .modal-header-title,
 .modal-body-title,
-.close {
+.close,
+#modal-btn {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
