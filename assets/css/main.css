@@ -7,6 +7,9 @@ body {
   repeat: no-repeat;*/
   background-color: #252525; }
 
+.row {
+  margin: 0; }
+
 .nav-container {
   margin-top: 10px;
   margin-bottom: 10px;
