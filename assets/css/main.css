@@ -96,7 +96,7 @@ body {
   color: #ff1810;
   border-radius: 10px;
   border-color: slategray;
-  width: 100px;
+  width: inherit;
   height: 30px;
   vertical-align: -webkit-baseline-middle; }
 .game-container .round-display {
@@ -113,11 +113,6 @@ body {
   letter-spacing: 1px;
   padding: 5px;
   margin: 0; }
-
-#start-btn {
-  width: inherit;
-  padding: 7px;
-  height: 42px; }
 
 .game-btn-wrapper {
   margin-top: 5px;
@@ -144,7 +139,7 @@ button:focus {
   bottom: 0;
   right: 0;
   margin: auto;
-  background-color: #d2d200; }
+  background-color: #b5b500; }
 
 #red-btn {
   height: 75%;

@@ -1,11 +1,11 @@
 //Ensures the code doesn't run until after the index.html file is loaded
 $(function() {
-    
+
     // //Toggle the fa chevron to up/down when each accordion button is clicked
     // $(".btn-link").click(function() {
     //     $(this).children('.fas').toggleClass('fa-chevron-up fa-chevron-down');
     // });
-    
+
     //-----------------------------------------------------------Sound Variables
     const yellowBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
     const redBtnSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
@@ -15,7 +15,7 @@ $(function() {
     const clickOffSound = new Audio("assets/sounds/clicking-off.mp3");
     const winGameSound = new Audio("assets/sounds/correct.mp3");
     const wrongSound = new Audio("assets/sounds/wrong.mp3");
-    
+
     //--------------------------------------------------Game button variables
     const yellowBtn = $("#yellow-btn");
     const redBtn = $("#red-btn");
@@ -24,9 +24,10 @@ $(function() {
     const powerBtn = $("#power-btn");
     const startBtn = $("#start-btn");
     const strictBtn = $("#strict-btn");
+    const hardBtn = $("#hard-btn");
     const roundTxt = $("#round-text");
     const roundAid = $("#round-aid")
-    
+
     //-----------------------------------------------------------------Variables
     let cpuSequence = []; //CPU sequence
     let userSequence = []; //User sequence
@@ -35,25 +36,27 @@ $(function() {
     let correct; //Determines whether the player has hit the right colors or not
     let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
     let intervalId; //Determines the duration of function execution
+    let hard = false; //Hard mode will be false as default
     let strict = false; //Strict mode will be false as default
     let sound = true; //Ensures that the sound is on when the game is being played
     let power = false; //Game is off as a default so power variable is set to false
     let win; //Determines if the player has won the game or not
     let strike = 0; //Determines number of strikes in the game - increments with incorrect user input - allows one mistake in normal mode
     let flashSpeed = 1; //Determines the flash speed in hard mode - variable decreases as rounds progress so the time between flashes decreases
-    
+
     //Disables the gameboard buttons as a default
     enableBoard(false);
-    
+
     //--------------------------------------------------------------Power Button
-    
+
     $(powerBtn).click(function() {
         if (power) {
             power = false;
             //Text changes to "ON" when the power is turned off again
             play(clickOffSound);
-            $(powerBtn).css({"background-color": "#6b0000", "color": "#ff1810"});
+            $(powerBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
             $(startBtn).text("");
+            $(hardBtn).text("");
             $(strictBtn).text("");
             $(roundTxt).text("");
             $(roundAid).text("");
@@ -63,42 +66,65 @@ $(function() {
             //Sets the strict button to false if strict mode was on during gameplay
             if (strict) {
                 strict = false;
-                $(strictBtn).css({"background-color": "#6b0000", "color": "#ff1810"});
+                $(strictBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
+            }
+            if (hard) {
+                hard = false;
+                $(hardBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
             }
         }
         else {
             power = true;
             //Text changes to "OFF" when the power is on
             play(clickOnSound);
-            $(powerBtn).css({"background-color": "#ff1810", "color": "#6b0000"});
+            $(powerBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
             $(startBtn).text(`START`);
+            $(hardBtn).text(`HARD`);
             $(strictBtn).text(`STRICT`);
             $(roundTxt).text(`ROUND --`);
             $(roundAid).text(`PRESS START`);
         }
         console.log("power", power);
     });
-    
+
+    //---------------------------------------------------------------Hard Button
+
+    $(hardBtn).click(function() {
+        if (power) {
+            if (hard) {
+                play(clickOffSound);
+                $(hardBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
+                hard = false;
+            }
+            else {
+                play(clickOnSound);
+                $(hardBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
+                hard = true;
+            }
+            console.log("hard", hard);
+        }
+    });
+
     //-------------------------------------------------------------Strict Button
-    
+
     $(strictBtn).click(function() {
         if (power) {
             if (strict) {
                 play(clickOffSound);
-                $(strictBtn).css({"background-color": "#6b0000", "color": "#ff1810"});
+                $(strictBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
                 strict = false;
             }
             else {
                 play(clickOnSound);
-                $(strictBtn).css({"background-color": "#ff1810", "color": "#6b0000"});
+                $(strictBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
                 strict = true;
             }
             console.log("strict", strict);
         }
     });
-    
+
     //--------------------------------------------------------------Start Button
-    
+
     $(startBtn).click(function() {
         //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
         if (power || win) {
@@ -108,9 +134,9 @@ $(function() {
             startGame();
         }
     });
-    
+
     //------------------------------------------------------------Game Functions
-    
+
     //Function to start the game
     function startGame() {
         win = false;
@@ -131,11 +157,26 @@ $(function() {
             console.log(cpuSequence);
         }
     }
+    
+    //Function to increase the flash speed after set number of rounds - this will be used when the game is played in hard mode
+    function setFlashSpeed() {
+        switch (round) {
+            case 3:
+                flashSpeed = 0.8;
+                break;
+            case 5:
+                flashSpeed = 0.65;
+                break;
+            case 8:
+                flashSpeed = 0.5;
+                break;
+        }
+    }
 
     //Function that determines when it is the CPU's turn or the user's turn
     function cpuAttempt() {
         enableBoard(false);
-        
+
         //If the number of flashes in the round equals the round number, it will be the user's turn
         if (flash == round) {
             enableBoard(true);
@@ -254,9 +295,9 @@ $(function() {
             //Sequence is incorrect
             correct = false;
         }
-        
+
         //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
-        if (userSequence.length == 5 && correct) {
+        if (userSequence.length == 10 && correct) {
             enableBoard(false);
             userWin();
         }
@@ -267,11 +308,11 @@ $(function() {
             lightAll();
             $(roundTxt).text(`WRONG`);
             $(roundAid).text(`TRY AGAIN!`);
+            play(wrongSound);
             setTimeout(function() {
                 $(roundTxt).text(`ROUND ${round}`);
                 resetColor();
-                play(wrongSound);
-
+                
                 //If in strict mode, game restarts
                 if (strict) {
                     startGame();
@@ -283,7 +324,8 @@ $(function() {
                     if (strike < 2) {
                         sharedStatements();
                         correct = true;
-                    } else {
+                    }
+                    else {
                         strike = 0;
                         startGame();
                     }
@@ -323,18 +365,25 @@ $(function() {
         cpuTurn = true;
         flash = 0;
         userSequence = [];
-        //Ensures that the cpuAttempt function runs every 1 second
-        intervalId = setInterval(cpuAttempt, 800);
+        if (hard) {
+            //calls the setFlashSpeed function and decreases the time between flashes
+            setFlashSpeed();
+            intervalId = setInterval(cpuAttempt, (800 * flashSpeed));
+        } else {
+            //Ensures that the cpuAttempt function runs every 800 milliseconds in default mode
+            intervalId = setInterval(cpuAttempt, 800);
+        }
     }
-    
-    
+
+
     function play(soundId) {
         if (soundId.paused) {
             soundId.play();
-        } else {
+        }
+        else {
             soundId.pause();
             soundId.currentTime = 0;
         }
     }
-    
+
 });

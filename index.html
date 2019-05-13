@@ -22,12 +22,10 @@
     <header class="nav-container container-fluid text-center">
         <div class="nav-wrapper row">
             <div class="col-12">
-                <h1 class="nav-heading text-uppercase"><a href="index.html">Simon Game</a></h1>
-            </div>
-            <div class="col-12">
+                <h1 class="nav-heading text-uppercase"><a href="index.html">Simon!</a></h1>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#intructionsModal">
-                <h3><i class="far fa-question-circle"></i></h3>
-            </button>
+                    <h3><i class="far fa-question-circle"></i></h3>
+                </button>
             </div>
         </div>
     </header>
@@ -98,14 +96,17 @@
     <!--Game board-->
     <section class="game-container container-fluid">
         <div class="row">
-            <div class="game-options-wrapper col-4 text-right">
+            <div class="game-options-wrapper col-4 text-center">
                 <button id="power-btn" class="game-option-btn">On/Off</button>
             </div>
             <div class="game-options-wrapper col-4 text-center">
-                <button id="start-btn" class="game-option-btn"></button>
+                <button id="hard-btn" class="game-option-btn"></button>
             </div>
-            <div class="game-options-wrapper col-4 text-left">
+            <div class="game-options-wrapper col-4 text-center">
                 <button id="strict-btn" class="game-option-btn"></button>
+            </div>
+            <div class="game-options-wrapper col-12 text-center">
+                <button id="start-btn" class="game-option-btn"></button>
             </div>
             <div class="round-wrapper col-10 offset-1 text-center text-uppercase">
                 <div class="round-display">
@@ -178,7 +179,7 @@
                             Repeat the pattern shown to progress through the rounds.<br/>
                         </p>
                         <p class="modal-body-text">
-                            Successfully complete 20 rounds to win the game and be notified of your victory.
+                            Successfully complete 10 rounds to win the game and be notified of your victory.
                         </p>
                     <h4 class="modal-body-title">Game modes</h4>
                         <p class="modal-body-text">
@@ -186,7 +187,15 @@
                             giving you another chance to get it right. If you make a second mistake, the game will restart.<br/>
                         </p>
                         <p class="modal-body-text">
+                            <em class="text-uppercase"><q>Hard</q></em> Mode: Same as <em class="text-uppercase"><q>Default</q></em> Mode, but the sequence speeds 
+                            up as you progress through the rounds.
+                        </p>
+                        <p class="modal-body-text">
                             <em class="text-uppercase"><q>Strict</q></em> Mode: No second chances! If you make a mistake, the whole game restarts.
+                        </p>
+                        <p class="modal-body-text">
+                            <em class="text-uppercase"><q>Legendary</q></em> Mode: You can combine <em class="text-uppercase"><q>Hard</q></em> & 
+                            <em class="text-uppercase"><q>Strict</q></em> Modes to achieve Legendary status!
                         </p>
                 </div>
                 <div class="modal-footer">
