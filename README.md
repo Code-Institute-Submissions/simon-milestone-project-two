@@ -19,7 +19,10 @@
 - [Testing](#Testing)
   - [Testing User Stories](#Testing-User-Stories)
   - [Automated Testing](#Automated-Testing)
+    - [Run Jasmine Tests](#Run-Jasmine-Tests)
+    - [Create Jasmine Tests](#Create-Jasmine-Tests)
   - [Responsive Testing](#Responsive-Testing)
+  - [Additional Testing](#Additional-Testing)
   - [HTML And CSS Validation](#HTML-And-CSS-Validation)
   - [Interesting Bugs Or Problems](#Interesting-Bugs-Or-Problems)
 - [Deployment](#Deployment)
@@ -171,7 +174,30 @@ I tested some of my functions with Jasmine after completing the majority of my J
 
 Now that I have a working knowledge of TDD using Jasmine and a more in depth knowledge of JavaScript, I will try to build my testing suite and write my JavaScript code simultaneously going forward.
 
-Jasmine-Jquery CDN has been imported into the jasmine testing to allow for jQuery within the JavaScript functions.
+I imported the Jasmine-jQuery CDN into the Jasmine testing boilerplate to ensure it was compatible with jQuery.
+
+The links to my Jasmine testing suite files are below:
+
+- HTML test page to run tests from - [indexTesting.html](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/indexTesting.html)
+- Jasmine JavaScript testing suite - [spec.js](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/spec/spec.js)
+- JavaScript file to be tested - [script.js](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/js/script.js)
+
+#### Run Jasmine Tests
+
+Once you've cloned my project by following the instructions in the **_Deployment - Running Code Locally_** below, you can run the Jasmine tests by completing the following steps:
+
+1. Open the [indexTesting.html](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/indexTesting.html) file.
+2. Run the file to view the results in your browser.
+
+#### Create Jasmine Tests
+
+Once you have my project running locally, you can create your own Jasmine tests by completing the following steps:
+
+1. Open the [script.js](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/js/script.js) to view the existing code for my project.
+2. Open the [spec.js](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/spec/spec.js) file.
+3. Write your own tests using the Jasmine 3.3.0 framework.
+4. Save the [spec.js](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/spec/spec.js) file.
+5. Run or refresh the [indexTesting.html](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/indexTesting.html).
 
 ### Responsive Testing
 
@@ -180,6 +206,10 @@ I used Google Chrome's Development tools to constantly test each change that I m
 To test my whole game (aspects that weren't automated), I went through each feature and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
 
 - [Testing Checklist]()
+
+### Additional Testing
+
+In addition to my own testing, I also asked family members, friends and the Slack community to test my game and provide any feedback.
 
 ### HTML and CSS Validation
 
@@ -226,7 +256,7 @@ To run my code locally, users can download a local copy of my code to their desk
 1. Go to [my GitHub repository](https://github.com/hebs87/simon-milestone-project-two).
 2. Click on 'Clone or download'.
 3. Click on 'Download ZIP'.
-4. Once dowloaded, extract the zip file's contents and run my website locally.
+4. Once dowloaded, extract the zip file's contents and run my game locally.
 
 ## Credits
 
