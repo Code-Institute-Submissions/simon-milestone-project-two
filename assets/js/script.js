@@ -54,14 +54,14 @@ $(function() {
     $(volBtn).click(function() {
         if(sound) {
             sound = false;
-            $(volBtn).toggleClass("fa-volume-mute");
-            $(volBtn).toggleClass("fa-volume-up");
+            $(this).toggleClass("fa-volume-mute");
+            $(this).toggleClass("fa-volume-up");
             console.log("sound", sound);
         } else {
             sound = true;
             play(clickOnSound);
-            $(volBtn).toggleClass("fa-volume-mute");
-            $(volBtn).toggleClass("fa-volume-up");
+            $(this).toggleClass("fa-volume-mute");
+            $(this).toggleClass("fa-volume-up");
             console.log("sound", sound);
         }
     });
@@ -73,7 +73,7 @@ $(function() {
             power = false;
             //Text changes to "ON" when the power is turned off again
             play(clickOffSound);
-            $(powerBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
+            $(this).css({ "background-color": "#6b0000", "color": "#ff1810" });
             $(startBtn).text("");
             $(hardBtn).text("");
             $(strictBtn).text("");
@@ -83,11 +83,9 @@ $(function() {
             resetColor();
             clearInterval(intervalId);
             //Sets the strict button to false if strict mode was on during gameplay
-            if (strict) {
+            if (strict || hard) {
                 strict = false;
                 $(strictBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
-            }
-            if (hard) {
                 hard = false;
                 $(hardBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
             }
@@ -96,7 +94,7 @@ $(function() {
             power = true;
             //Text changes to "OFF" when the power is on
             play(clickOnSound);
-            $(powerBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
+            $(this).css({ "background-color": "#ff1810", "color": "#6b0000" });
             $(startBtn).text(`START`);
             $(hardBtn).text(`HARD`);
             $(strictBtn).text(`STRICT`);
@@ -112,12 +110,12 @@ $(function() {
         if (power) {
             if (hard) {
                 play(clickOffSound);
-                $(hardBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
+                $(this).css({ "background-color": "#6b0000", "color": "#ff1810" });
                 hard = false;
             }
             else {
                 play(clickOnSound);
-                $(hardBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
+                $(this).css({ "background-color": "#ff1810", "color": "#6b0000" });
                 hard = true;
             }
             console.log("hard", hard);
@@ -130,12 +128,12 @@ $(function() {
         if (power) {
             if (strict) {
                 play(clickOffSound);
-                $(strictBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
+                $(this).css({ "background-color": "#6b0000", "color": "#ff1810" });
                 strict = false;
             }
             else {
                 play(clickOnSound);
-                $(strictBtn).css({ "background-color": "#ff1810", "color": "#6b0000" });
+                $(this).css({ "background-color": "#ff1810", "color": "#6b0000" });
                 strict = true;
             }
             console.log("strict", strict);
@@ -148,7 +146,7 @@ $(function() {
         //This acts as a start button when the power is first turned on, or a reset button if the user is mid-game or has won
         if (power || win) {
             play(clickOnSound);
-            $(startBtn).text(`RESET`);
+            $(this).text(`RESET`);
             $(roundTxt).text(`ROUND ${round}`);
             startGame();
         }
@@ -180,13 +178,13 @@ $(function() {
     //Function to increase the flash speed after set number of rounds - this will be used when the game is played in hard mode
     function setFlashSpeed() {
         switch (round) {
-            case 3:
+            case 5:
                 flashSpeed = 0.8;
                 break;
-            case 5:
+            case 10:
                 flashSpeed = 0.65;
                 break;
-            case 8:
+            case 15:
                 flashSpeed = 0.5;
                 break;
         }
@@ -313,7 +311,7 @@ $(function() {
         }
 
         //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
-        if (userSequence.length === 10 && correct) {
+        if (userSequence.length === 20 && correct) {
             enableBoard(false);
             userWin();
         }

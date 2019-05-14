@@ -58,6 +58,7 @@ body {
 .nav-wrapper {
     .btn {
         @include headerFont {
+            font-size: 30px;
             color: #ff1810;
             text-shadow: 1px 1px 1px #fafafa;
             background: none;
