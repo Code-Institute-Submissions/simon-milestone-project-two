@@ -206,7 +206,7 @@ $(function() {
             power = true;
         }
 
-        //This if statement will run if it is the CPU's turn and there will be a gap of 500 milliseconds between each flash
+        //This if statement will run if it is the CPU's turn and there will be a gap of 300 milliseconds between each flash
         if (cpuTurn) {
             enableBoard(false);
             $(roundAid).text(`WATCH...`);
@@ -303,7 +303,7 @@ $(function() {
             }
         }
     }
-
+    
     //Plays the sound and adds class when relevant game button is pressed
     function checkUserInput() {
         //Verifies userSequence against the cpuSequence
@@ -313,7 +313,7 @@ $(function() {
         }
 
         //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
-        if (userSequence.length == 10 && correct) {
+        if (userSequence.length === 10 && correct) {
             enableBoard(false);
             userWin();
         }
@@ -324,7 +324,7 @@ $(function() {
             lightAll();
             $(roundTxt).text(`WRONG`);
             //If the user loses the game then the text displays "YOU LOSE!"; if the user just gets their first turn incorrect in normal mode, the text displays "TRY AGAIN"
-            if(strict || strike == 1) {
+            if(strict || strike === 1) {
                 $(roundAid).text(`YOU LOSE!`);
             } else {
                 $(roundAid).text(`TRY AGAIN!`);
@@ -408,5 +408,5 @@ $(function() {
             }
         }
     }
-
+    
 });
