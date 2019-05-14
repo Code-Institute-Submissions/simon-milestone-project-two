@@ -64,6 +64,8 @@ body {
             border: none;
             margin-top: 5px;
             padding: 0;
+            margin-left: 10px;
+            margin-right: 10px;
         }
     }
     .btn:hover,
@@ -136,6 +138,7 @@ body {
             border-color: slategray;
             width: inherit;
             height: 30px;
+            padding: 0;
             vertical-align: -webkit-baseline-middle;
         }
     }

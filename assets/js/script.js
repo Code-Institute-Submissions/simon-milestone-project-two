@@ -17,6 +17,7 @@ $(function() {
     const wrongSound = new Audio("assets/sounds/wrong.mp3");
 
     //--------------------------------------------------Game button variables
+    const volBtn = $("#volume-btn");
     const yellowBtn = $("#yellow-btn");
     const redBtn = $("#red-btn");
     const greenBtn = $("#green-btn");
@@ -26,7 +27,7 @@ $(function() {
     const strictBtn = $("#strict-btn");
     const hardBtn = $("#hard-btn");
     const roundTxt = $("#round-text");
-    const roundAid = $("#round-aid")
+    const roundAid = $("#round-aid");
 
     //-----------------------------------------------------------------Variables
     let cpuSequence = []; //CPU sequence
@@ -43,10 +44,28 @@ $(function() {
     let win; //Determines if the player has won the game or not
     let strike = 0; //Determines number of strikes in the game - increments with incorrect user input - allows one mistake in normal mode
     let flashSpeed = 1; //Determines the flash speed in hard mode - variable decreases as rounds progress so the time between flashes decreases
-
+    
     //Disables the gameboard buttons as a default
     enableBoard(false);
-
+    
+    //-------------------------------------------------------------Volume Button
+    
+    //Toggle volume icon when clicked
+    $(volBtn).click(function() {
+        if(sound) {
+            sound = false;
+            $(volBtn).toggleClass("fa-volume-mute");
+            $(volBtn).toggleClass("fa-volume-up");
+            console.log("sound", sound);
+        } else {
+            sound = true;
+            play(clickOnSound);
+            $(volBtn).toggleClass("fa-volume-mute");
+            $(volBtn).toggleClass("fa-volume-up");
+            console.log("sound", sound);
+        }
+    });
+    
     //--------------------------------------------------------------Power Button
 
     $(powerBtn).click(function() {
@@ -203,7 +222,6 @@ $(function() {
 
     //Plays the button effect for the corresponding case number in the cpuSequence[flash] array
     function playBtnEffects(id) {
-        if (sound) {
             switch (id) {
                 case 0:
                     $(yellowBtn).addClass("lit");
@@ -222,8 +240,6 @@ $(function() {
                     play(blueBtnSound);
                     break;
             }
-            sound = true;
-        }
     }
 
     //Resets the button colors to the original colors
@@ -301,16 +317,22 @@ $(function() {
             enableBoard(false);
             userWin();
         }
-
+        
         if (correct == false) {
             //All lights flash, loseGameSound plays and roundNum text changes to "WRONG, TRY AGAIN for 500 milliseconds, then reverts back to round number"
             enableBoard(false);
             lightAll();
             $(roundTxt).text(`WRONG`);
-            $(roundAid).text(`TRY AGAIN!`);
+            //If the user loses the game then the text displays "YOU LOSE!"; if the user just gets their first turn incorrect in normal mode, the text displays "TRY AGAIN"
+            if(strict || strike == 1) {
+                $(roundAid).text(`YOU LOSE!`);
+            } else {
+                $(roundAid).text(`TRY AGAIN!`);
+            }
             play(wrongSound);
             setTimeout(function() {
                 $(roundTxt).text(`ROUND ${round}`);
+                $(roundAid).text(`WATCH...`);
                 resetColor();
                 
                 //If in strict mode, game restarts
@@ -331,7 +353,6 @@ $(function() {
                     }
                 }
             }, 1000);
-
         }
 
         //This statement executes if the user gets the sequence correct, but hasn't won the game
@@ -374,15 +395,17 @@ $(function() {
             intervalId = setInterval(cpuAttempt, 800);
         }
     }
-
-
+    
+    //Function to play restart sound clip if another clip is still playing
     function play(soundId) {
-        if (soundId.paused) {
-            soundId.play();
-        }
-        else {
-            soundId.pause();
-            soundId.currentTime = 0;
+        if(sound) {
+            if (soundId.paused) {
+                soundId.play();
+            }
+            else {
+                soundId.pause();
+                soundId.currentTime = 0;
+            }
         }
     }
 
