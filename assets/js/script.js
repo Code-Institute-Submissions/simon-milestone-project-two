@@ -315,6 +315,7 @@ function checkUserInput() {
         //All lights flash, loseGameSound plays and roundNum text changes to "WRONG, TRY AGAIN for 500 milliseconds, then reverts back to round number"
         enableBoard(false);
         lightAll();
+        play(wrongSound);
         $(roundTxt).text(`WRONG`);
         //If the user loses the game then the text displays "YOU LOSE!"; if the user just gets their first turn incorrect in normal mode, the text displays "TRY AGAIN"
         if (strict || strike === 1) {
@@ -323,14 +324,14 @@ function checkUserInput() {
         else {
             $(roundAid).text(`TRY AGAIN!`);
         }
-        play(wrongSound);
         setTimeout(function() {
             $(roundTxt).text(`ROUND ${round}`);
             $(roundAid).text(`WATCH...`);
             resetColor();
-
             //If in strict mode, game restarts
             if (strict) {
+                //An alert pops up to let the user know which round they reached
+                alert(`You reached Round ${round}`);
                 startGame();
             }
             else {
@@ -342,6 +343,8 @@ function checkUserInput() {
                     correct = true;
                 }
                 else {
+                    //An alert pops up to let the user know which round they reached
+                    alert(`You reached Round ${round}`);
                     strike = 0;
                     startGame();
                 }
