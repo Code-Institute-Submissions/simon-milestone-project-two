@@ -3,35 +3,32 @@
 ## Table of Contents
 
 - [About](#About)
+  - [Why This Project?](#Why-This-Project?)
 - [UX](#UX)
   - [User Stories](#User-Stories)
   - [Research](#Research)
   - [Style Rationale](#Style-Rationale)
   - [Wireframes](#Wireframes)
 - [Features](#Features)
+  - [Functionality](#Functionality)
   - [Existing Features](#Existing-Features)
     - [Game Controls](#Game-Controls)
     - [Modes](#Modes)
-    - [Sounds](#Sounds)
   - [Features Left To Implement](#Features-Left-To-Implement)
 - [Technologies Used](#Technologies-Used)
 - [Testing](#Testing)
-  - [Key-Points](#Key-Points)
-  - [Tools-and-Methods-Used-for-Testing](#Tools-and-Methods-Used-for-Testing)
-  - [Additional-Points](#Additional-Points)
-  - [Tested-Sections-1-HTML-CSS](#Tested-Sections-1-HTML-CSS)
-  - [Tested-Sections-2-JavaScript-Using-The-Jasmine-Framework](#Tested-Sections-2-JavaScript-Using-The-Jasmine-Framework)
-  - [Identified Issues During Testing](#Identified-Issues-During-Testing)
+  - [Testing User Stories](#Testing-User-Stories)
+  - [Automated Testing](#Automated-Testing)
+  - [Responsive Testing](#Responsive-Testing)
+  - [HTML And CSS Validation](#HTML-And-CSS-Validation)
+  - [Interesting Bugs Or Problems](#Interesting-Bugs-Or-Problems)
 - [Deployment](#Deployment)
-  - [Application Location](#Application-Location)
-  - [Cloning The Repository](#Cloning-The-Repository)
-  - [Running The Application](#Running-The-Application)
-  - [Post Deployment Tests](#Post-Deployment-Tests)
-  - [Development vs Deployed Application](#Development-vs-Deployed-Application)
-  - [Identified Issues During Deployment](#Identified-Issues-During-Deployment)
-  - [Result](#Result)
+  - [Repository Link](#Repository-Link)
+  - [Running Code Locally](#Running-Code-Locally)
 - [Credits](#Credits)
   - [Content](#Content)
+  - [Media](#Media)
+    -[Sounds](#Sounds)
   - [Acknowledgements](#Acknowledgements)
 
 ## About
@@ -40,7 +37,11 @@ This application (app) is my rendition of the classic simple memory game, **_Sim
 
 You can find out more about the original **_Simon_** game and rules by watching this [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4), or visiting this [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)) page.
 
+### Why This Project?
+
 I created this game for the Interactive Frontend Development project. The project scope was to create the game using HTML, CSS and JavaScript, with the core focus being the functional logic created with JavaScript.
+
+There was a choice of three different projects. My weakest area of JavaScript was with understanding functions and how they can be called or passed to other functions. This was a major aspect of the **_Simon_** game project, so choosing this project would enable me to develop my weakest area. I learnt a lot during the course of the project, and it has definitely helped me to stregthen my weakest area.
 
 ## UX
 
@@ -80,13 +81,29 @@ There are some differences between my wireframes and my final website. This was 
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+### Functionality
+
+- A random seqence of sound and light buttons get is generated and presented to the user by the CPU.
+
+- The user is then required to input/repeat the displayed sequence correctly by clicking the relevant button sequences with a cursor on laptop/desktop devices, or a finger/thumb on touch devices. A valid user input initiates the next round where the same sequence is replayed, but with an additional step.
+
+- When users click/press a button, they will hear a sound and see a light colour that corresponds to the button that they click/press. Users will only be able to click the buttons when it is their turn to do so. The buttons are disabled at all other times.
+
+- If a user inputs the wrong sequence, a notification by a specific sound accompanied with a text message will appear in the display area, after which the previous sequence replays and allows the user to try again. 'Non-strict' mode allows for one mistake, any additional mistakes causes the game to reset. 'Strict mode' allows for no mistakes, the game restarts after the user makes one mistake.
+
+- The round number corresponds to the number of button presses so that the user can see how many steps are in the current sequence.
+
+- If a user wants to restart the game, they can click the 'RESET' button to do so.
+
+- A user can play in 'Default Mode', in which a new step in the CPU sequence occurs every 800 milliseconds. The user can also play in 'Hard Mode', in which the time between each step in a sequence reduces as the rounds progress. 'Strict Mode' is compatible with any mode.
+
+- Repeating 20 sequences correctly means that the user wins the game. When this happens, a message stating 'YOU WIN!' appears in the display area, and a specific sound plays. The user is also instructed to press 'START' to start a new game.
 
 ### Existing Features
 
 #### Game Controls
 
-- **Header** - Users are able to click the **_Simon_** logo in the header, which reloads the webpage/app.
+- **Header Logo** - Users are able to click the **_Simon_** logo in the header, which reloads the webpage/app.
 - **"?" Icon** - Users are able to click the **"?"** icon in the header, which loads a modal.
 - **Modal** - The modal is triggered by the "?" icon, and it allows users to read the instructions for how to operate the game.
 - **Volume icon** - Users are able to click the volume icon in the header, which toggles the sound on and off. The icon also changes depending on the toggle state.
@@ -107,11 +124,6 @@ In this section, you should go over the different parts of your project, and des
 - **Incorrect Entry** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
 - **Lose Game** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
 - **Win Game** - In addition to the text change in the display area (explained in the previous section), all game buttons light up to provide the user with an additional visual aid to let them know that they've won the game. The lights stay lit until the user presses 'START' to start a new game.
-
-### Sounds
-
-- **Game Button Sounds** - I got the sounds for the game buttons from [Free Code Camp](https://www.freecodecamp.org/), and assigned the url link to the relevant button in my script.js file.
-- **Game Sounds** - I downloaded the sounds for the game sounds and button clicks from [Zapsplat](www.zapsplat.com) and imported them into my workspace. I then created variables for these sound files in my script.js file.
 
 ### Features Left to Implement
 
@@ -151,7 +163,7 @@ In this section, you should go over the different parts of your project, and des
 
 I used my user stories and documented each of the steps that each user would need to accomplish what they have stated. Below is the link to the document that contains this information:
 
-- [Testing User Stories]()
+- [Testing User Stories](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/manual/testing-user-stories.pdf)
 
 ### Automated Testing
 
@@ -159,9 +171,9 @@ I used my user stories and documented each of the steps that each user would nee
 
 ### Responsive Testing
 
-I used Google Chrome's Development tools to constantly test each change that I made to my website and to ensure that it appeared in the desired way on different screen sizes. I also tested my website on different screen sizes (mobile, tablet and desktop) to ensure it appeared in the desired way on different devices.
+I used Google Chrome's Development tools to constantly test each change that I made to my project and to ensure that it appeared in the desired way on different screen sizes. I also tested my game on different screen sizes (mobile, tablet and desktop) to ensure it appeared in the desired way on different devices.
 
-To test my whole website, I went through each page, feature by feature, and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
+To test my whole game, I went through each feature and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
 
 - [Testing Checklist]()
 
@@ -173,35 +185,63 @@ I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validat
 
 I used the [Esprima Syntax Validator tool](http://esprima.org/demo/validate.html) to validate my JavaScript syntax.
 
-### Interesting Bugs or Problems
+### Interesting Bugs Or Problems
 
-- **Burger icon** - The burger icon wasn't appearing once the fullscreen overlay menu was triggered. The reason for this is that the header in which the burger icon was in had a lower z-index than the overlay menu. To fix the issue, I gave the header a higher z-index value than the overlay menu.
-- **Burger icon when overlay menu is triggered** - As the header (including the burger icon) is part of the page, it disappears when the user scrolls down while the overlay menu is triggered. The user then has to scroll back to the top of the page for the burger icon to reappear while the overlay menu is triggered. This is another constraint, and I will fix this bug when I learn JavaScript, so that the header remains fixed, only when the overlay menu is triggered.
-- **Band card images** - The images automatically take up 100% of the card width, so they appear stretched. I have tried to make the images take up less of the card width, but this throws the alignment out, and it doesn't look as tidy with the scroll bars. This is a constraint and I've decided to leave the images as they are.
-- **'dates' attribute** - For the discography timeline, I used the sample code from the code used within the Resume mini project. The sample code used the `dates` attribute. However, the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) stated that this was invalid. When I looked on Slack, I saw that another student had the same issue, and the advice they received was to use the `data-year` attribute instead. I tried this and it resolved the issue.
-- **'Submit' button on *Book Us* form** - Once I entered the information and submitted the form, the form kept routing me through to the index.html page. After speaking with my mentor, he asked me to check the value of the `action` attribute of the `<form>` element. The issue was that the value I was using was `action="/"`. Once I changed this to `action="contact.html"` the issue was resolved.
-- **'Submit' button on *Book Us* form** - Once I entered the information and submitted the form, I kept getting a '405 Not Allowed' error message, but this was only happening in the live environment and not the testing environment. I posted this in the Slack community and was given the advice to change the `method` value to `get` instead of `post`. This resolved the error.
+- **CPU sequence wasn't playing** - The automated CPU sequence wasn't playing. I spent some time trying to debug this and ultimately asked for help on the Slack community and was signposted to a [Debugging video](https://www.youtube.com/watch?v=AX7uybwukkk) by *Anna_lead*. After watching this video, I managed to used the Chrome debugger tool to identify the bug, which was a missing semicolon in one of the functions. This took me around 5 hours to debug, but I was able to ultimately resolve it myself, and I learnt how to use the Chrome debugger tool in the process.
+- **Changing modes during CPU sequence** - Changing game modes or restarting the game while the CPU sequence played caused the game to 'break', and the a refresh would be required to reload the game. To fix this bug, I used the `power = false;` statement to effective disable the game control buttons while the CPU sequence played. While this fixes the bug, this requires the user to wait until the CPU sequence has finished playing before they can use these buttons again.
+- **Quick button presses** - During the user's turn to enter the sequence, the user was able to repeatedly press the same game button in quick succession, which broke the game. To combat this, I disabled the game button for 300 milliseconds after the user clicks it, to minimize the risk of them breaking the game.
+- **Too many button presses** - After the last button press in a particular sequence, the game buttons are enabled for a short period of time after the 300 millisecond period that they are disabled for, before the next round initiates. This means that there is a small window of opportunity for a user to click a game button, which registers an additional button press in that particular sequence. If this is done, it causes the game to break. Trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
+- **Game button sounds** - Sometimes, the sounds don't always play when the corresponding game buttons flash, which is more noticeable on mobiles. I included a function to reset the audio clip to 0 seconds and restart it if the sound is already playing, in an attempt to resolve the sound issue. However, this didn't seem to resolve the issue. Again, trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+The hosting platform that I've used for my project is GitHub Pages. To deploy my website to GitHub pages, I used the following steps:
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+1. Loaded the terminal window in my Cloud9 workspace.
+2. Initialised Git using the `git init` command.
+3. Added all files to the Staging area (Git) using the `git add .` command.
+4. Committed the files to Git using the `git commit -m "Initial commit"` command.
+5. Created a new repository in GitHub called 'monkees-milestone-project-one'.
+6. Copied the below code from GitHub into the terminal window in my Cloud9 workspace:
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+    ```git remote add origin https://github.com/hebs87/monkees-milestone-project-one.git```
 
+    ```git push -u origin master```
+
+7. Entered my GitHub username and password to push the files from Git to GitHub.
+8. Went into 'Settings' on my repository page in GitHub.
+9. Selected the 'master branch' option under the 'GitHub Pages' section.
+10. Ran several regular commits throughout my project.
+
+### Repository Link
+
+https://hebs87.github.io/simon-milestone-project-two/
+
+### Running Code Locally
+
+To run my code locally, users can download a local copy of my code to their desktop by completing the following steps:
+
+1. Go to [my GitHub repository](https://github.com/hebs87/simon-milestone-project-two).
+2. Click on 'Clone or download'.
+3. Click on 'Download ZIP'.
+4. Once dowloaded, extract the zip file's contents and run my website locally.
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+
+- All of the code for my project was written by me.
+- I watched the [Simon Game JavaScript Tutorial for Beginners](https://www.youtube.com/watch?v=n_ec3eowFLQ) video before starting my project to gain an understanding of the type of functions that I needed to include in my script.js file to ennsure the game's functionality.
 
 ### Media
-- The photos used in this site were obtained from ...
+
+#### Sounds
+
+- **Game Button Sounds** - I got the sounds for the game buttons from [Free Code Camp](https://www.freecodecamp.org/), and assigned the url link to the relevant button in my script.js file.
+- **Game Sounds** - I downloaded the sounds for the game sounds and button clicks from [Zapsplat](www.zapsplat.com) and imported them into my workspace. I then created variables for these sound files in my script.js file.
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from searching for Simon games in Google and testing several of the renditions that were shown in the search results.
+- Thanks to the Slack community for pointing me in the right direction of how to debug my JavaScript code.
+- A special mention to my mentor, Dick Vlaanderen, for his feedback on my project's scope, design and functionality, and for hints on what information to include in my README.md file to justify my stylistic choices and project choice.

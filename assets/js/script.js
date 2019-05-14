@@ -206,6 +206,7 @@ $(function() {
 
         //This if statement will run if it is the CPU's turn and there will be a gap of 300 milliseconds between each flash
         if (cpuTurn) {
+            power = false;
             enableBoard(false);
             $(roundAid).text(`WATCH...`);
             resetColor();
