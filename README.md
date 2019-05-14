@@ -151,7 +151,7 @@ There are some differences between my wireframes and my final website. This was 
 - [**Cloud9**](https://c9.io/login)
     - I've used **Cloud9** as the development environment to write the code for my website.
 - [**Jasmine**](https://jasmine.github.io/)
-    - The project uses **Jasmine** to automate some testing of my **JavaScript** code.
+    - The project uses Test Driven Development (TDD) using the **Jasmine** framework to automate some testing of my **JavaScript** code.
 - [**Git**](https://git-scm.com/)
     - I've used **Git** as a version control system to regularly add and commit changes made to project in Cloud9, before pushing them to GitHub.
 - [**GitHub**](https://github.com/)
@@ -167,23 +167,25 @@ I used my user stories and documented each of the steps that each user would nee
 
 ### Automated Testing
 
+I tested some of my functions with Jasmine after completing the majority of my JavaScript code. As I was completely new to JavaScript and Jasmine at the beginning of this project, I wasn't able to write TDD tests and my JavaScript code simultaneously. Therefore, I focussed on writing the code for my project first and then tackled the TDD afterwards. I also only tested some of my functions, and not all, as I didn't want to spend too much time on this by using it to test all my functions.
 
+Now that I have a working knowledge of TDD using Jasmine and a more in depth knowledge of JavaScript, I will try to build my testing suite and write my JavaScript code simultaneously going forward.
+
+Jasmine-Jquery CDN has been imported into the jasmine testing to allow for jQuery within the JavaScript functions.
 
 ### Responsive Testing
 
 I used Google Chrome's Development tools to constantly test each change that I made to my project and to ensure that it appeared in the desired way on different screen sizes. I also tested my game on different screen sizes (mobile, tablet and desktop) to ensure it appeared in the desired way on different devices.
 
-To test my whole game, I went through each feature and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
+To test my whole game (aspects that weren't automated), I went through each feature and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
 
 - [Testing Checklist]()
 
 ### HTML and CSS Validation
 
-I used the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
-
-I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
-
-I used the [Esprima Syntax Validator tool](http://esprima.org/demo/validate.html) to validate my JavaScript syntax.
+- I used the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
+- I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
+- I used the [Esprima Syntax Validator tool](http://esprima.org/demo/validate.html) to validate my JavaScript syntax.
 
 ### Interesting Bugs Or Problems
 
@@ -245,3 +247,7 @@ To run my code locally, users can download a local copy of my code to their desk
 - I received inspiration for this project from searching for Simon games in Google and testing several of the renditions that were shown in the search results.
 - Thanks to the Slack community for pointing me in the right direction of how to debug my JavaScript code.
 - A special mention to my mentor, Dick Vlaanderen, for his feedback on my project's scope, design and functionality, and for hints on what information to include in my README.md file to justify my stylistic choices and project choice.
+
+### Disclaimer
+
+This project is for educational purposes only.
