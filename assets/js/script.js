@@ -28,6 +28,7 @@ let cpuSequence = []; //CPU sequence
 let userSequence = []; //User sequence
 let flash; //Number of flashes that appear in the game
 let round; //Determines which round/attempt we are on
+let totalRounds = 10; //The total number of rounds before the user wins the game
 let correct; //Determines whether the player has hit the right colors or not
 let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
 let intervalId; //Determines the duration of function execution
@@ -162,7 +163,7 @@ function startGame() {
 
 //Function to generate the random array of cpu sequences - passed into the startGame function
 function getNewMove() {
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < totalRounds; i++) {
         let newMove = Math.floor(Math.random() * 4);
         cpuSequence.push(newMove);
         console.log(cpuSequence);
@@ -172,13 +173,13 @@ function getNewMove() {
 //Function to increase the flash speed after set number of rounds - this will be used when the game is played in hard mode
 function setFlashSpeed() {
     switch (round) {
-        case 5:
+        case 3:
             flashSpeed = 0.8;
             break;
-        case 10:
+        case 5:
             flashSpeed = 0.65;
             break;
-        case 15:
+        case 8:
             flashSpeed = 0.5;
             break;
     }
@@ -306,7 +307,7 @@ function checkUserInput() {
     }
 
     //Statement runs if userSequence is 20, which is the end of the game AND all steps are correct
-    if (userSequence.length === 20 && correct) {
+    if (userSequence.length === totalRounds && correct) {
         enableBoard(false);
         userWin();
     }

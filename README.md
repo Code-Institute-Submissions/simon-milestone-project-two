@@ -117,6 +117,7 @@ There are some differences between my wireframes and my final website. This was 
 - **Display Area** - The area below the control buttons is a text display area. Before gameplay, the text in this area displays 'ROUND --' and 'PRESS START'. During gameplay, the text displays the round number and tells users whether to 'WATCH...' (CPU's turn) or 'GO...' (user's turn). If the user enters the wrong sequence, the text changes to 'WRONG' and 'TRY AGAIN!'. If the user loses the game, the text changes to 'WRONG' and 'YOU LOSE'. If the user wins the game, the text changes to 'YOU WIN!' and 'PRESS START'. This improves UX and provides visual cues for the user.
 - **Game Buttons** - There are four game buttons, all different colors. Users press these buttons on their turn to repeat the sequence that the CPU displayed. The lights flash when they are active, either during the CPU's turn, or when clicked by the user. These buttons are only enabled during the user's turn, and are disabled at all other times, which prevents users from clicking these buttons when they aren't supposed to. During the user's turn, when the user clicks a game button, all game buttons are disabled for the subsequent 300 millisecond period, which prevents users from clicking the buttons too quickly. After this time, the buttons are enabled again if it is still the user's turn.
 - **Footer Link** - Users can click the link, which is my name. Upon clicking the link, users are directed to my GitHub profile, which loads in a new browser tab.0
+- **Alert window** - When users loses the game, an alert window is displayed which shows users the last round that they reached before losing the game. Users will need to close the alert box before a new game will restart.
 
 #### Modes
 
@@ -125,7 +126,7 @@ There are some differences between my wireframes and my final website. This was 
 - **Strict Mode** - This mode allows no mistakes from the user. Regardless of which round the game had progressed to, if a user makes a mistake, the game automatically restarts.
 - **Legendary Mode** - This mode is activated when the user turns both 'Hard Mode' and 'Strict Mode' on, making the game faster and harder as the rounds progress, and doesn't allow the user to make a mistake.
 - **Incorrect Entry** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
-- **Lose Game** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
+- **Lose Game** - In addition to the text change in the display area and the alert window (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
 - **Win Game** - In addition to the text change in the display area (explained in the previous section), all game buttons light up to provide the user with an additional visual aid to let them know that they've won the game. The lights stay lit until the user presses 'START' to start a new game.
 
 ### Features Left to Implement
