@@ -2,21 +2,21 @@
 
 ## Table of Contents
 
-- [About](#About)
+- [**About**](#About)
   - [Why This Project?](#Why-This-Project?)
-- [UX](#UX)
+- [**UX**](#UX)
   - [User Stories](#User-Stories)
   - [Research](#Research)
   - [Style Rationale](#Style-Rationale)
   - [Wireframes](#Wireframes)
-- [Features](#Features)
+- [**Features**](#Features)
   - [Functionality](#Functionality)
   - [Existing Features](#Existing-Features)
     - [Game Controls](#Game-Controls)
     - [Modes](#Modes)
   - [Features Left To Implement](#Features-Left-To-Implement)
-- [Technologies Used](#Technologies-Used)
-- [Testing](#Testing)
+- [**Technologies Used**](#Technologies-Used)
+- [**Testing**](#Testing)
   - [Testing User Stories](#Testing-User-Stories)
   - [Automated Testing](#Automated-Testing)
     - [Run Jasmine Tests](#Run-Jasmine-Tests)
@@ -25,14 +25,15 @@
   - [Additional Testing](#Additional-Testing)
   - [HTML And CSS Validation](#HTML-And-CSS-Validation)
   - [Interesting Bugs Or Problems](#Interesting-Bugs-Or-Problems)
-- [Deployment](#Deployment)
+- [**Deployment**](#Deployment)
   - [Repository Link](#Repository-Link)
   - [Running Code Locally](#Running-Code-Locally)
-- [Credits](#Credits)
+- [**Credits**](#Credits)
   - [Content](#Content)
   - [Media](#Media)
     -[Sounds](#Sounds)
   - [Acknowledgements](#Acknowledgements)
+  - [Disclaimer](#Disclaimer)
 
 ## About
 
@@ -206,7 +207,7 @@ I used Google Chrome's Development tools to constantly test each change that I m
 
 To test my whole game (aspects that weren't automated), I went through each feature and documented the results on a spreadsheet. The spreadsheet also documents any responsive features and confirms that they work and appear as intended on different screen sizes. The link to the spreadsheet it below:
 
-- [Testing Checklist]()
+- [Testing Checklist](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/manual/testing-checklist.pdf)
 
 ### Additional Testing
 
