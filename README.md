@@ -139,12 +139,14 @@ There are some differences between my wireframes and my final website. This was 
 
 - [**Balsamiq**](https://balsamiq.com/)
     - I've used **Balsamiq** to create wireframes of my website/app before building it.
-- [**HTML5**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-    - The project uses **HTML5** to create the basic elements and content of my game.
-- [**SCSS**](https://sass-lang.com/documentation/syntax) and [**CSS3**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-    - The project uses **SCSS and CSS3** to add custom styles to the elements and content of my game.
-- [**Bootstrap v4.3**](https://getbootstrap.com/)
-    - The project uses **Bootstrap v4.3** to add a responsive grid system, prebuilt components, plugins built on jQuery, and Bootstrap styles to my game, before adding my custom styles.
+- [**HTML**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+    - The project uses **HTML** to create the basic elements and content of my game.
+- [**SCSS**](https://sass-lang.com/documentation/syntax)
+    - The project uses **SCSS** to add custom styles to the elements and content of my game. I used **SCSS** instead of **CSS**, as it is more powerful and I used the logic to write some mixins, which I called for my fonts and button styles.
+- [**CSS**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
+    - The projecct uses **CSS** to apply the custom styles created with **SCSS** to my game. The index.html file is linked directly to the main.css stylesheet.
+- [**Bootstrap**](https://getbootstrap.com/)
+    - The project uses the **Bootstrap** framework to add a responsive grid system, prebuilt components, plugins built on jQuery, and Bootstrap styles to my game, before adding my custom styles.
 - [**JavaScript**](https://www.javascript.com/)
     - The project uses **JavaScript** from my custom script.js file to add functionality to my game. This is a core focus of this project. The project also uses **JavaScript** from Bootstrap which is required to add functionality to the Bootstrap modal.
 - [**jQuery**](https://jquery.com)
@@ -224,6 +226,7 @@ In addition to my own testing, I also asked family members, friends and the Slac
 - **CPU sequence wasn't playing** - The automated CPU sequence wasn't playing. I spent some time trying to debug this and ultimately asked for help on the Slack community and was signposted to a [Debugging video](https://www.youtube.com/watch?v=AX7uybwukkk) by *Anna_lead*. After watching this video, I managed to used the Chrome debugger tool to identify the bug, which was a missing semicolon in one of the functions. This took me around 5 hours to debug, but I was able to ultimately resolve it myself, and I learnt how to use the Chrome debugger tool in the process.
 - **Changing modes during CPU sequence** - Changing game modes or restarting the game while the CPU sequence played caused the game to 'break', and the a refresh would be required to reload the game. To fix this bug, I used the `power = false;` statement to effective disable the game control buttons while the CPU sequence played. While this fixes the bug, this requires the user to wait until the CPU sequence has finished playing before they can use these buttons again.
 - **Quick button presses** - During the user's turn to enter the sequence, the user was able to repeatedly press the same game button in quick succession, which broke the game. To combat this, I disabled the game button for 300 milliseconds after the user clicks it, to minimize the risk of them breaking the game.
+- **Classes not being added** - As part of my UX consideration, I have amended the CSS for the control buttons so that the colors are inverted when the buttons are in an active state. However, I initially tried to do this by using the `.addClass()` method in jQuery. However, although the classes were being added, the visual effects weren't updating in the game. I resolved this by using the `.css()` method in my script.js to directly amend the styles for the buttons, which resolved the bug.
 - **Too many button presses** - After the last button press in a particular sequence, the game buttons are enabled for a short period of time after the 300 millisecond period that they are disabled for, before the next round initiates. This means that there is a small window of opportunity for a user to click a game button, which registers an additional button press in that particular sequence. If this is done, it causes the game to break. Trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
 - **Game button sounds** - Sometimes, the sounds don't always play when the corresponding game buttons flash, which is more noticeable on mobiles. I included a function to reset the audio clip to 0 seconds and restart it if the sound is already playing, in an attempt to resolve the sound issue. However, this didn't seem to resolve the issue. Again, trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
 
@@ -256,9 +259,15 @@ https://hebs87.github.io/simon-milestone-project-two/
 To run my code locally, users can download a local copy of my code to their desktop by completing the following steps:
 
 1. Go to [my GitHub repository](https://github.com/hebs87/simon-milestone-project-two).
-2. Click on 'Clone or download'.
-3. Click on 'Download ZIP'.
-4. Once dowloaded, extract the zip file's contents and run my game locally.
+2. Click on 'Clone or download' under the repository name.
+3. Copy the clone URL for the repository in the 'Clone with HTTPs section'.
+4. Open 'Git Bash' in your local IDE.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, then paste the URL you copied in Step 3:
+
+```git clone https://github.com/USERNAME/REPOSITORY```
+
+7. Press `Enter` to complete the process and create a your local clone.
 
 ## Credits
 

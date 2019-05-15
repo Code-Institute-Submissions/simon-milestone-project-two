@@ -1,0 +1,20 @@
+@mixin headerFont() {
+    font: {
+        family: "Orbitron", sans-serif;
+        weight: 600;
+    }
+    letter-spacing: 1px;
+    @content;
+}
+
+@mixin gameBtnStyle() {
+    height: 75%;
+    width: 75%;
+    border-radius: 50%;
+    position: absolute;
+    border-width: 3px;
+    border-color: $grey;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    @content;
+}

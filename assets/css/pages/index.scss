@@ -1,0 +1,38 @@
+body {
+    background-color: $darkGrey;
+}
+
+.row {
+    margin: 0;
+}
+
+.game-container,
+.game-btn-container {
+    padding: 0;
+}
+
+.game-container {
+    .game-options-wrapper {
+        margin-top: 20px;
+    }
+    .round-display {
+        margin-top: 20px;
+        border-radius: 20px;
+        height: 82px;
+        background-color: $darkRed;
+        color: $lightRed;
+        border: outset 3px $grey;
+    }
+    #round-text,
+    #round-aid {
+        @include headerFont {
+            padding: 5px;
+            margin: 0;
+        }
+    }
+}
+
+.game-btn-wrapper {
+    margin-top: 5px;
+    padding: 0;
+}

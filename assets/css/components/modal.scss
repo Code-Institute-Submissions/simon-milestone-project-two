@@ -1,0 +1,26 @@
+.modal-content {
+    background-color: $darkGrey;
+}
+
+.modal-header-title,
+.modal-body-title,
+.close,
+#modal-btn {
+    @include headerFont {
+        color: $lightRed;
+        text-shadow: 1px 1px 1px $offWhite;
+    }
+}
+
+.close:hover {
+    color: $lightRed;
+}
+
+.modal-body-text {
+    font: {
+            family: "Orbitron", sans-serif;
+            weight: 300;
+        }
+    color: $lightRed;
+    letter-spacing: 1px;
+}

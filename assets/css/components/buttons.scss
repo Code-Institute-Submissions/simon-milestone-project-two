@@ -1,0 +1,91 @@
+.nav-wrapper {
+    .btn {
+        @include headerFont {
+            font-size: 30px;
+            color: $lightRed;
+            text-shadow: 1px 1px 1px $offWhite;
+            background: none;
+            border: none;
+            margin-top: 5px;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0;
+        }
+    }
+    .btn:hover,
+    .btn:focus {
+        text-decoration: none;
+        color: $lightRed;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.game-container {
+    .game-option-btn {
+        @include headerFont {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: $darkRed;
+            color: $lightRed;
+            border-radius: 10px;
+            border-color: $grey;
+            width: inherit;
+            height: 30px;
+            padding: 0;
+            vertical-align: -webkit-baseline-middle;
+        }
+    }
+}
+
+.game-btn {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+button:focus {
+    outline: none;
+}
+
+#yellow-btn {
+    @include gameBtnStyle {
+        background-color: $darkYellow;
+    }
+}
+
+#red-btn {
+    @include gameBtnStyle {
+        background-color: $darkRed;
+    }
+}
+
+#green-btn {
+    @include gameBtnStyle {
+        background-color: $darkGreen;
+    }
+}
+
+#blue-btn {
+    @include gameBtnStyle {
+        background-color: $darkBlue;
+    }
+}
+
+#yellow-btn.lit {
+    background-color: $yellow;
+}
+
+#red-btn.lit {
+    background-color: $red;
+}
+
+#green-btn.lit {
+    background-color: $green;
+}
+
+#blue-btn.lit {
+    background-color: $blue;
+}

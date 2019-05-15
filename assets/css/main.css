@@ -1,28 +1,4 @@
-/*Import google fonts*/
 @import url("https://fonts.googleapis.com/css?family=Orbitron:100,200,300,400,500,600,700,800,900");
-/*Mixins*/
-body {
-  background-color: #252525; }
-
-.row {
-  margin: 0; }
-
-.nav-container {
-  margin-top: 10px;
-  padding: 0; }
-
-.nav-heading {
-  margin: 0; }
-
-.nav-heading a {
-  font-family: "Orbitron", sans-serif;
-  font-weight: 700;
-  color: #ff1810;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 1px #fafafa, -2px -2px 1px #fafafa; }
-.nav-heading a:hover {
-  text-decoration: none; }
-
 .nav-wrapper .btn {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
@@ -44,19 +20,13 @@ body {
   border: none;
   box-shadow: none; }
 
-.game-container,
-.game-btn-container {
-  padding: 0; }
-
-.game-container .game-options-wrapper {
-  margin-top: 20px; }
 .game-container .game-option-btn {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #6b0000;
+  background-color: #b10000;
   color: #ff1810;
   border-radius: 10px;
   border-color: slategray;
@@ -64,24 +34,6 @@ body {
   height: 30px;
   padding: 0;
   vertical-align: -webkit-baseline-middle; }
-.game-container .round-display {
-  margin-top: 20px;
-  border-radius: 20px;
-  height: 82px;
-  background-color: #6b0000;
-  color: #ff1810;
-  border: outset 3px slategray; }
-.game-container #round-text,
-.game-container #round-aid {
-  font-family: "Orbitron", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 5px;
-  margin: 0; }
-
-.game-btn-wrapper {
-  margin-top: 5px;
-  padding: 0; }
 
 .game-btn {
   height: 200px;
@@ -172,6 +124,22 @@ button:focus {
 .footer-text a:focus {
   text-decoration: none; }
 
+.nav-container {
+  margin-top: 10px;
+  padding: 0; }
+
+.nav-heading {
+  margin: 0; }
+
+.nav-heading a {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  color: #ff1810;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 1px #fafafa, -2px -2px 1px #fafafa; }
+.nav-heading a:hover {
+  text-decoration: none; }
+
 .modal-content {
   background-color: #252525; }
 
@@ -193,5 +161,36 @@ button:focus {
   font-weight: 300;
   color: #ff1810;
   letter-spacing: 1px; }
+
+body {
+  background-color: #252525; }
+
+.row {
+  margin: 0; }
+
+.game-container,
+.game-btn-container {
+  padding: 0; }
+
+.game-container .game-options-wrapper {
+  margin-top: 20px; }
+.game-container .round-display {
+  margin-top: 20px;
+  border-radius: 20px;
+  height: 82px;
+  background-color: #b10000;
+  color: #ff1810;
+  border: outset 3px slategray; }
+.game-container #round-text,
+.game-container #round-aid {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px;
+  margin: 0; }
+
+.game-btn-wrapper {
+  margin-top: 5px;
+  padding: 0; }
 
 /*# sourceMappingURL=main.css.map */

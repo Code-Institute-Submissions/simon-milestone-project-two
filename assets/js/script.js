@@ -16,6 +16,7 @@ const yellowBtn = $("#yellow-btn");
 const redBtn = $("#red-btn");
 const greenBtn = $("#green-btn");
 const blueBtn = $("#blue-btn");
+const gameBtns = $(".game-btn").children();
 const powerBtn = $("#power-btn");
 const startBtn = $("#start-btn");
 const strictBtn = $("#strict-btn");
@@ -248,20 +249,13 @@ function resetColor() {
 function enableBoard(check) {
     if (check) {
         // activate the buttons on the gameboard
-        $(yellowBtn).prop("disabled", false);
-        $(redBtn).prop("disabled", false);
-        $(greenBtn).prop("disabled", false);
-        $(blueBtn).prop("disabled", false);
+        $(gameBtns).prop("disabled", false);
     }
     else {
         // deactivate the buttons the gameboard
-        $(yellowBtn).prop("disabled", true);
-        $(redBtn).prop("disabled", true);
-        $(greenBtn).prop("disabled", true);
-        $(blueBtn).prop("disabled", true);
+        $(gameBtns).prop("disabled", true);
     }
 }
-
 
 //Play sounds and light when user clicks on the buttons
 $(yellowBtn).click(function() {
@@ -363,10 +357,7 @@ function checkUserInput() {
 
 //lightAll function will be called if user enters wrong sequence or user wins the game
 function lightAll() {
-    $(yellowBtn).addClass("lit");
-    $(redBtn).addClass("lit");
-    $(greenBtn).addClass("lit");
-    $(blueBtn).addClass("lit");
+    $(gameBtns).addClass("lit");
 }
 
 //Function called when user wins the game
