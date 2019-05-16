@@ -148,6 +148,11 @@ $(startBtn).click(function() {
         $(this).text(`RESET`);
         $(roundTxt).text(`ROUND ${round}`);
         startGame();
+        //Disables this button for one second after it is pressed to avoid breaking the game
+        $(this).prop('disabled', true);
+        setTimeout(function() {
+            $(startBtn).prop('disabled', false);
+        }, 1000);
     }
 });
 
