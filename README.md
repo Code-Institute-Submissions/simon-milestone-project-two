@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [**About**](#About)
-  - [Why This Project?](#Why-This-Project?)
+  - [Why This Project?](#Why-This-Project)
 - [**UX**](#UX)
   - [User Stories](#User-Stories)
   - [Research](#Research)
@@ -32,7 +32,7 @@
 - [**Credits**](#Credits)
   - [Content](#Content)
   - [Media](#Media)
-    -[Sounds](#Sounds)
+    - [Sounds](#Sounds)
   - [Acknowledgements](#Acknowledgements)
   - [Disclaimer](#Disclaimer)
 
