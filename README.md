@@ -16,6 +16,7 @@
     - [Modes](#Modes)
   - [Features Left To Implement](#Features-Left-To-Implement)
 - [**Technologies Used**](#Technologies-Used)
+  - [Version Control](#Version-Control) 
 - [**Testing**](#Testing)
   - [Testing User Stories](#Testing-User-Stories)
   - [Automated Testing](#Automated-Testing)
@@ -93,7 +94,7 @@ There are some differences between my wireframes and my final website. This was 
 
 - When users click/press a button, they will hear a sound and see a light colour that corresponds to the button that they click/press. Users will only be able to click the buttons when it is their turn to do so. The buttons are disabled at all other times.
 
-- If a user inputs the wrong sequence, a notification by a specific sound accompanied with a text message will appear in the display area, after which the previous sequence replays and allows the user to try again. 'Non-strict' mode allows for one mistake, any additional mistakes causes the game to reset. 'Strict mode' allows for no mistakes, the game restarts after the user makes one mistake.
+- If a user inputs the wrong sequence, a notification by a specific sound accompanied with a text message will appear in the display area, after which the previous sequence replays and allows the user to try again. 'Non-strict' mode allows for one mistake, any additional mistakes causes the user to lose the game and be presented with an accompanying pop up modal. The user can then click 'START' to restart the game. 'Strict mode' allows for no mistakes, and the user is presented with the pop up modal after the first mistake. The user can then restart the game by pressing 'START'.
 
 - The round number corresponds to the number of button presses so that the user can see how many steps are in the current sequence.
 
@@ -101,7 +102,7 @@ There are some differences between my wireframes and my final website. This was 
 
 - A user can play in 'Default Mode', in which a new step in the CPU sequence occurs every 800 milliseconds. The user can also play in 'Hard Mode', in which the time between each step in a sequence reduces as the rounds progress. 'Strict Mode' is compatible with any mode.
 
-- Repeating 20 sequences correctly means that the user wins the game. When this happens, a message stating 'YOU WIN!' appears in the display area, and a specific sound plays. The user is also instructed to press 'START' to start a new game.
+- Repeating 20 sequences correctly means that the user wins the game. When this happens, a message stating 'YOU WIN!' appears in the display area, and a specific sound plays. The user is instructed to press 'START' to start a new game. The user is also presented with a pop up modal to congratulate them and tell them that they're awesome.
 
 ### Existing Features
 
@@ -115,24 +116,25 @@ There are some differences between my wireframes and my final website. This was 
 - **Hard Button** - Users can toggle the Hard button to turn 'Hard mode' on or off. When 'Hard mode' is on, css is used to highlight this button. When 'Hard mode' is off, this button returns to its default state. If 'Hard mode' is on, this is automatically turned off when the game is powered off. This gives the user a clear visual indication of when 'Hard mode' is on or off.
 - **Strict Button** - Users can toggle the Strict button to turn 'Strict mode' on or off. When 'Strict mode' is on, css is used to highlight this button. When 'Strict mode' is off, this button returns to its default state. If 'Strict mode' is on, this is automatically turned off when the game is powered off. This gives the user a clear visual indication of when 'Strict mode' is on or off.
 - **Start/Reset Button** - Users can click the Start button to start the game. During gameplay, this button changes to a Reset button and the text in it changes to 'RESET' to alert users of this. When the gameplay is over, the text in the button changes back to 'START'.
-- **Display Area** - The area below the control buttons is a text display area. Before gameplay, the text in this area displays 'ROUND --' and 'PRESS START'. During gameplay, the text displays the round number and tells users whether to 'WATCH...' (CPU's turn) or 'GO...' (user's turn). If the user enters the wrong sequence, the text changes to 'WRONG' and 'TRY AGAIN!'. If the user loses the game, the text changes to 'WRONG' and 'YOU LOSE'. If the user wins the game, the text changes to 'YOU WIN!' and 'PRESS START'. This improves UX and provides visual cues for the user.
+- **Display Area** - The area below the control buttons is a text display area. Before gameplay, the text in this area displays 'ROUND --' and 'PRESS START'. During gameplay, the text displays the round number and tells users whether to 'WATCH...' (CPU's turn) or 'GO...' (user's turn). If users enter the wrong sequence, the text changes to 'WRONG' and 'TRY AGAIN!'. If users lose the game, the text changes to 'WRONG' and 'YOU LOSE', and then 'YOU LOSE!' and 'PRESS START' after 1 second. If users win the game, the text changes to 'YOU WIN!' and 'PRESS START'. This improves UX and provides visual cues for users.
 - **Game Buttons** - There are four game buttons, all different colors. Users press these buttons on their turn to repeat the sequence that the CPU displayed. The lights flash when they are active, either during the CPU's turn, or when clicked by the user. These buttons are only enabled during the user's turn, and are disabled at all other times, which prevents users from clicking these buttons when they aren't supposed to. During the user's turn, when the user clicks a game button, all game buttons are disabled for the subsequent 300 millisecond period, which prevents users from clicking the buttons too quickly. After this time, the buttons are enabled again if it is still the user's turn.
 - **Footer Link** - Users can click the link, which is my name. Upon clicking the link, users are directed to my GitHub profile, which loads in a new browser tab.
-- **Alert window** - When users loses the game, an alert window is displayed which shows users the last round that they reached before losing the game. Users will need to close the alert box before a new game will restart.
+- **Feedback modal** - When users lose the game, a pop up modal is displayed, which shows users the last round that they reached before losing the game, and it instructs users to press 'START' to try again. Users will need to close the alert modal and manually press 'START' to start a new game. When users win the game, a pop up modal is displayed which congratulates users and tells them that they're awesome, and it instructs users to press 'START' to start a new game. Users will need to close the alert modal and manually press 'START' to start a new game.
 
 #### Modes
 
-- **Default Mode** - The lights flash in a specific sequence, every 800 milliseconds. The seuqence repeats and a new step is added to the sequence with each round, which makes the game progressively difficult. If the user makes one mistake, the previous pattern is repeated, giving the user another chance to get it right. If the user makes a second mistake, the game automatically restarts.
+- **Default Mode** - The lights flash in a specific sequence, every 800 milliseconds. The sequence repeats and a new step is added to the sequence with each round, which makes the game progressively difficult. If users make one mistake, the previous pattern is repeated, giving them another chance to get it right. If users make a second mistake, they are presented with a pop up modal, which tells them that they lost the game, the last round that they reached, and instructs them to press 'START' to try again.
 - **Hard Mode** - This mode is the same as 'Default Mode', with the difference being the time between the light flashes on the CPU's turn. In rounds 1 to 4, the lights flash every 800 milliseconds. In rounds 5 to 9, the lights flash every 640 milliseconds. In rounds 10 to 14, the lights flash every 520 milliseconds. In rounds 15 to 20, the lights flash every 400 milliseconds. This makes the game even harder than the 'Default Mode' as the rounds progress.
-- **Strict Mode** - This mode allows no mistakes from the user. Regardless of which round the game had progressed to, if a user makes a mistake, the game automatically restarts.
-- **Legendary Mode** - This mode is activated when the user turns both 'Hard Mode' and 'Strict Mode' on, making the game faster and harder as the rounds progress, and doesn't allow the user to make a mistake.
-- **Incorrect Entry** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
-- **Lose Game** - In addition to the text change in the display area and the alert window (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've made a mistake.
+- **Strict Mode** - This mode allows no mistakes from users. Regardless of which round the game had progressed to, if users make a mistake, they are presented with a pop up modal, which tells them that they lost the game, the last round that they reached, and instructs them to press 'START' to try again.
+- **Legendary Mode** - This mode is activated when the user turns both 'Hard Mode' and 'Strict Mode' on, making the game faster and harder as the rounds progress, and doesn't allow users to make a mistake.
+- **Incorrect Entry** - In addition to the text change in the display area (explained in the previous section), all game buttons flash to provide users with an additional visual aid to let them know that they've made a mistake.
+- **Lose Game** - In addition to the text change in the display area and the pop up modal (explained in the previous section), all game buttons flash to provide the user with an additional visual aid to let them know that they've lost the game.
 - **Win Game** - In addition to the text change in the display area (explained in the previous section), all game buttons light up to provide the user with an additional visual aid to let them know that they've won the game. The lights stay lit until the user presses 'START' to start a new game.
 
 ### Features Left to Implement
 
 - **Leaderboard** - Once I learn back-end development, I would like to implement a high score leaderboard for users who have played my game. This would require asking the user to enter their name before they are able to play the game, which is then stored in a back-end database, along with the highest round that they reached.
+- **Online play** - When I have the skillset, I would like to implement an online mode where users can compete against other users.
 - **Pause** - I would like to introduce a pause function, which allows users to pause the game.
 
 ## Technologies Used
@@ -142,13 +144,13 @@ There are some differences between my wireframes and my final website. This was 
 - [**HTML**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
     - The project uses **HTML** to create the basic elements and content of my game.
 - [**SCSS**](https://sass-lang.com/documentation/syntax)
-    - The project uses **SCSS** to add custom styles to the elements and content of my game. I used **SCSS** instead of **CSS**, as it is more powerful and I used the logic to write some mixins, which I called for my fonts and button styles.
+    - The project uses **SCSS** to add custom styles to the elements and content of my game. I used **SCSS** instead of **CSS**, as it is more powerful and I used the logic to write some variables and mixins, which I called for my fonts and button styles.
 - [**CSS**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)
-    - The projecct uses **CSS** to apply the custom styles created with **SCSS** to my game. The index.html file is linked directly to the main.css stylesheet.
+    - The project uses **CSS** to apply the custom styles created with **SCSS** to my game. The index.html file is linked directly to the main.css stylesheet.
 - [**Bootstrap**](https://getbootstrap.com/)
     - The project uses the **Bootstrap** framework to add a responsive grid system, prebuilt components, plugins built on jQuery, and Bootstrap styles to my game, before adding my custom styles.
 - [**JavaScript**](https://www.javascript.com/)
-    - The project uses **JavaScript** from my custom script.js file to add functionality to my game. This is a core focus of this project. The project also uses **JavaScript** from Bootstrap which is required to add functionality to the Bootstrap modal.
+    - The project uses **JavaScript** from my custom script.js file to add functionality and interactivity to my game. This is the core focus of this project. The project also uses **JavaScript** from Bootstrap which is required to add functionality to the Bootstrap modal.
 - [**jQuery**](https://jquery.com)
     - The project uses **jQuery** to simplify DOM manipulation. This is both the standard jQuery that is built with Bootstrap components, and my custom jQuery used in my script.js file.
 - [**Google Fonts**](https://fonts.google.com/)
@@ -159,6 +161,9 @@ There are some differences between my wireframes and my final website. This was 
     - I've used **Cloud9** as the development environment to write the code for my website.
 - [**Jasmine**](https://jasmine.github.io/)
     - The project uses Test Driven Development (TDD) using the **Jasmine** framework to automate some testing of my **JavaScript** code.
+
+### Version Control
+
 - [**Git**](https://git-scm.com/)
     - I've used **Git** as a version control system to regularly add and commit changes made to project in Cloud9, before pushing them to GitHub.
 - [**GitHub**](https://github.com/)
@@ -168,7 +173,7 @@ There are some differences between my wireframes and my final website. This was 
 
 ### Testing User Stories
 
-I used my user stories and documented each of the steps that each user would need to accomplish what they have stated. Below is the link to the document that contains this information:
+I used my user stories and documented each of the steps that each user would need to complete to accomplish what they have stated. Below is the link to the document that contains this information:
 
 - [Testing User Stories](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/manual/testing-user-stories.pdf)
 
@@ -188,7 +193,7 @@ The links to my Jasmine testing suite files are below:
 
 #### Run Jasmine Tests
 
-Once you've cloned my project by following the instructions in the **_Deployment - Running Code Locally_** below, you can run the Jasmine tests by completing the following steps:
+Once you've cloned my project by following the instructions in the **_Deployment - Running Code Locally_** section below, you can run the Jasmine tests by completing the following steps:
 
 1. Open the [indexTesting.html](https://github.com/hebs87/simon-milestone-project-two/blob/master/assets/testing/automated/indexTesting.html) file.
 2. Run the file to view the results in your browser.
@@ -223,10 +228,10 @@ In addition to my own testing, I also asked family members, friends and the Slac
 
 ### Interesting Bugs Or Problems
 
-- **CPU sequence wasn't playing** - The automated CPU sequence wasn't playing. I spent some time trying to debug this and ultimately asked for help on the Slack community and was signposted to a [Debugging video](https://www.youtube.com/watch?v=AX7uybwukkk) by *Anna_lead*. After watching this video, I managed to used the Chrome debugger tool to identify the bug, which was a missing semicolon in one of the functions. This took me around 5 hours to debug, but I was able to ultimately resolve it myself, and I learnt how to use the Chrome debugger tool in the process.
-- **Changing modes during CPU sequence** - Changing game modes or restarting the game while the CPU sequence played caused the game to 'break', and the a refresh would be required to reload the game. To fix this bug, I used the `power = false;` statement to effective disable the game control buttons while the CPU sequence played. While this fixes the bug, this requires the user to wait until the CPU sequence has finished playing before they can use these buttons again.
-- **Quick button presses** - During the user's turn to enter the sequence, the user was able to repeatedly press the same game button in quick succession, which broke the game. To combat this, I disabled the game button for 300 milliseconds after the user clicks it, to minimize the risk of them breaking the game.
-- **Classes not being added** - As part of my UX consideration, I have amended the CSS for the control buttons so that the colors are inverted when the buttons are in an active state. However, I initially tried to do this by using the `.addClass()` method in jQuery. However, although the classes were being added, the visual effects weren't updating in the game. I resolved this by using the `.css()` method in my script.js to directly amend the styles for the buttons, which resolved the bug.
+- **CPU sequence wasn't playing** - The automated CPU sequence wasn't playing. I spent some time trying to debug this and ultimately asked for help on the Slack community and was signposted to a [Debugging video](https://www.youtube.com/watch?v=AX7uybwukkk) by *@Anna_lead*. After watching this video, I managed to used the Chrome debugger tool to identify the bug, which was a missing semicolon in one of the functions. This took me around 5 hours to debug, but I was able to ultimately resolve it myself, and I learnt how to use the Chrome debugger tool in the process.
+- **Changing modes during CPU sequence** - Changing game modes or restarting the game while the CPU sequence played caused the game to 'break', and a refresh would be required to reload the game. To fix this bug, I used the `power = false;` statement to effectively disable the game control buttons while the CPU sequence played. While this fixes the bug, this requires users to wait until the CPU sequence has finished playing before they can use these buttons again.
+- **Quick button presses** - During the user's turn to enter the sequence, users were able to repeatedly press the same game button in quick succession, which broke the game. To combat this, I disabled the game button for 300 milliseconds after users clicked/pressed it, to minimize the risk of them breaking the game.
+- **Classes not being added** - As part of my UX consideration, I have amended the CSS for the control buttons so that the colors are inverted when the buttons are in an active state. I initially tried to do this by using the `.addClass()` method in jQuery. However, although the classes were being added, the visual effects weren't updating in the game. I resolved this by using the `.css()` method in my script.js to directly amend the styles for the buttons, which resolved the bug.
 - **Too many button presses** - After the last button press in a particular sequence, the game buttons are enabled for a short period of time after the 300 millisecond period that they are disabled for, before the next round initiates. This means that there is a small window of opportunity for a user to click a game button, which registers an additional button press in that particular sequence. If this is done, it causes the game to break. Trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
 - **Game button sounds** - Sometimes, the sounds don't always play when the corresponding game buttons flash, which is more noticeable on mobiles. I included a function to reset the audio clip to 0 seconds and restart it if the sound is already playing, in an attempt to resolve the sound issue. However, this didn't seem to resolve the issue. Again, trying to resolve this bug was time consuming and I also noticed that this was an issue on the other renditions of the game that I played while conducting my research. Therefore, for the scope of this project, I left it unresolved so that I didn't spend too much time on it.
 
@@ -241,7 +246,7 @@ The hosting platform that I've used for my project is GitHub Pages. To deploy my
 5. Created a new repository in GitHub called 'monkees-milestone-project-one'.
 6. Copied the below code from GitHub into the terminal window in my Cloud9 workspace:
 
-    ```git remote add origin https://github.com/hebs87/monkees-milestone-project-one.git```
+    ```git remote add origin https://github.com/hebs87/simon-milestone-project-two.git```
 
     ```git push -u origin master```
 
@@ -252,7 +257,9 @@ The hosting platform that I've used for my project is GitHub Pages. To deploy my
 
 ### Repository Link
 
-https://hebs87.github.io/simon-milestone-project-two/
+Click the link below to run my project in the live environment:
+
+[**Simon Game**](https://hebs87.github.io/simon-milestone-project-two/)
 
 ### Running Code Locally
 
@@ -265,7 +272,7 @@ To run my code locally, users can download a local copy of my code to their desk
 5. Change the current working directory to the location where you want the cloned directory to be made.
 6. Type `git clone`, then paste the URL you copied in Step 3:
 
-```git clone https://github.com/USERNAME/REPOSITORY```
+    ```git clone https://github.com/USERNAME/REPOSITORY```
 
 7. Press `Enter` to complete the process and create a your local clone.
 
@@ -274,19 +281,19 @@ To run my code locally, users can download a local copy of my code to their desk
 ### Content
 
 - All of the code for my project was written by me.
-- I watched the [Simon Game JavaScript Tutorial for Beginners](https://www.youtube.com/watch?v=n_ec3eowFLQ) video before starting my project to gain an understanding of the type of functions that I needed to include in my script.js file to ennsure the game's functionality.
+- I watched the [Simon Game JavaScript Tutorial for Beginners](https://www.youtube.com/watch?v=n_ec3eowFLQ) video before starting my project to gain an understanding of the type of functions that I needed to include in my script.js file to ensure the game's functionality.
 
 ### Media
 
 #### Sounds
 
 - **Game Button Sounds** - I got the sounds for the game buttons from [Free Code Camp](https://www.freecodecamp.org/), and assigned the url link to the relevant button in my script.js file.
-- **Game Sounds** - I downloaded the sounds for the game sounds and button clicks from [Zapsplat](www.zapsplat.com) and imported them into my workspace. I then created variables for these sound files in my script.js file.
+- **Game Sounds** - I downloaded the sounds for the game sounds and button clicks from [Zapsplat](https://www.zapsplat.com) and imported them into my workspace. I then created variables for these sound files in my script.js file.
 
 ### Acknowledgements
 
 - I received inspiration for this project from searching for Simon games in Google and testing several of the renditions that were shown in the search results.
-- Thanks to the Slack community for pointing me in the right direction of how to debug my JavaScript code.
+- Thanks to the Slack community for their feedback, and for pointing me in the right direction of how to debug my JavaScript code.
 - A special mention to my mentor, Dick Vlaanderen, for his feedback on my project's scope, design and functionality, and for hints on what information to include in my README.md file to justify my stylistic choices and project choice.
 
 ### Disclaimer

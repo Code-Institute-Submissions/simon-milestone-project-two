@@ -29,7 +29,7 @@ let cpuSequence = []; //CPU sequence
 let userSequence = []; //User sequence
 let flash; //Number of flashes that appear in the game
 let round; //Determines which round/attempt we are on
-let totalRounds = 1; //The total number of rounds before the user wins the game
+let totalRounds = 8; //The total number of rounds before the user wins the game
 let correct; //Determines whether the player has hit the right colors or not
 let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
 let intervalId; //Determines the duration of function execution
@@ -174,13 +174,13 @@ function getNewMove() {
 //Function to increase the flash speed after set number of rounds - this will be used when the game is played in hard mode
 function setFlashSpeed() {
     switch (round) {
-        case 3:
+        case 2:
             flashSpeed = 0.8;
             break;
-        case 5:
+        case 4:
             flashSpeed = 0.65;
             break;
-        case 8:
+        case 6:
             flashSpeed = 0.5;
             break;
     }
@@ -374,8 +374,8 @@ function userWin() {
     play(winGameSound);
     //An alert modal pops up to let the user know that the won the game
     $("#feedback-btn").click();
-    $("#feedbackModal h3").text(`CONGRATULATIONS!`);
-    $("#feedbackModal h4").text(`YOU WIN! YOU'RE AWESOME!`);
+    $("#feedbackModal h3").text(`YOU WIN!`);
+    $("#feedbackModal h4").text(`YOU'RE AWESOME, CONGRATULATIONS!`);
     $("#feedbackModal p").text(`Press 'START' to start a new game...`)
     $(startBtn).text(`START`);
     $(roundTxt).text(`YOU WIN!`);
