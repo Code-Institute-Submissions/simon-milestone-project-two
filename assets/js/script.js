@@ -29,7 +29,7 @@ let cpuSequence = []; //CPU sequence
 let userSequence = []; //User sequence
 let flash; //Number of flashes that appear in the game
 let round; //Determines which round/attempt we are on
-let totalRounds = 8; //The total number of rounds before the user wins the game
+let totalRounds = 10; //The total number of rounds before the user wins the game
 let correct; //Determines whether the player has hit the right colors or not
 let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
 let intervalId; //Determines the duration of function execution
@@ -75,6 +75,7 @@ $(powerBtn).click(function() {
         $(strictBtn).text("");
         $(roundTxt).text("");
         $(roundAid).text("");
+        strike = 0;
         //Deactivate the game board and disable all game buttons
         resetColor();
         clearInterval(intervalId);
@@ -85,6 +86,7 @@ $(powerBtn).click(function() {
             hard = false;
             $(hardBtn).css({ "background-color": "#6b0000", "color": "#ff1810" });
         }
+        enableBoard(false);
     }
     else {
         power = true;
@@ -96,6 +98,7 @@ $(powerBtn).click(function() {
         $(strictBtn).text(`STRICT`);
         $(roundTxt).text(`ROUND --`);
         $(roundAid).text(`PRESS START`);
+        enableBoard(false);
     }
     console.log("power", power);
 });
@@ -174,13 +177,13 @@ function getNewMove() {
 //Function to increase the flash speed after set number of rounds - this will be used when the game is played in hard mode
 function setFlashSpeed() {
     switch (round) {
-        case 2:
+        case 5:
             flashSpeed = 0.8;
             break;
-        case 4:
+        case 10:
             flashSpeed = 0.65;
             break;
-        case 6:
+        case 15:
             flashSpeed = 0.5;
             break;
     }
@@ -285,7 +288,7 @@ function addUserSequence(id) {
         if (!win) {
             setTimeout(function() {
                 resetColor();
-                //Enables the gameboard buttons again after 500 milliseconds
+                //Enables the gameboard buttons again after 300 milliseconds
                 enableBoard(true);
             }, 300);
         }
