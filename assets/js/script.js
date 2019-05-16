@@ -29,7 +29,7 @@ let cpuSequence = []; //CPU sequence
 let userSequence = []; //User sequence
 let flash; //Number of flashes that appear in the game
 let round; //Determines which round/attempt we are on
-let totalRounds = 10; //The total number of rounds before the user wins the game
+let totalRounds = 1; //The total number of rounds before the user wins the game
 let correct; //Determines whether the player has hit the right colors or not
 let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
 let intervalId; //Determines the duration of function execution
@@ -314,7 +314,13 @@ function checkUserInput() {
         $(roundTxt).text(`WRONG`);
         //If the user loses the game then the text displays "YOU LOSE!"; if the user just gets their first turn incorrect in normal mode, the text displays "TRY AGAIN"
         if (strict || strike === 1) {
+            //An alert modal up to let the user know which round they reached, and what to do next
             $(roundAid).text(`YOU LOSE!`);
+            $("#feedback-btn").click();
+            $("#feedbackModal h3").text(`YOU LOSE!`);
+            $("#feedbackModal h4").text(`YOU REACHED ROUND ${round}!`);
+            $("#feedbackModal p").text(`Press 'START' to try again...`);
+            enableBoard(false);
         }
         else {
             $(roundAid).text(`TRY AGAIN!`);
@@ -325,9 +331,10 @@ function checkUserInput() {
             resetColor();
             //If in strict mode, game restarts
             if (strict) {
-                //An alert pops up to let the user know which round they reached
-                alert(`You reached Round ${round}`);
-                startGame();
+                $(startBtn).text(`START`);
+                $(roundTxt).text(`YOU LOSE!`);
+                $(roundAid).text(`PRESS START`);
+                enableBoard(false);
             }
             else {
                 //If not in strict mode and strike is less than 2, round is repeated; if strike is 2, the game restarts
@@ -338,10 +345,11 @@ function checkUserInput() {
                     correct = true;
                 }
                 else {
-                    //An alert pops up to let the user know which round they reached
-                    alert(`You reached Round ${round}`);
+                    $(startBtn).text(`START`);
+                    $(roundTxt).text(`YOU LOSE!`);
+                    $(roundAid).text(`PRESS START`);
                     strike = 0;
-                    startGame();
+                    enableBoard(false);
                 }
             }
         }, 1000);
@@ -364,8 +372,13 @@ function lightAll() {
 function userWin() {
     lightAll();
     play(winGameSound);
+    //An alert modal pops up to let the user know that the won the game
+    $("#feedback-btn").click();
+    $("#feedbackModal h3").text(`CONGRATULATIONS!`);
+    $("#feedbackModal h4").text(`YOU WIN! YOU'RE AWESOME!`);
+    $("#feedbackModal p").text(`Press 'START' to start a new game...`)
     $(startBtn).text(`START`);
-    $(roundTxt).text("YOU WIN!");
+    $(roundTxt).text(`YOU WIN!`);
     $(roundAid).text(`PRESS START`);
     win = true;
 }

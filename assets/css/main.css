@@ -26,7 +26,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #b10000;
+  background-color: #6b0000;
   color: #ff1810;
   border-radius: 10px;
   border-color: slategray;
@@ -178,7 +178,7 @@ body {
   margin-top: 20px;
   border-radius: 20px;
   height: 82px;
-  background-color: #b10000;
+  background-color: #6b0000;
   color: #ff1810;
   border: outset 3px slategray; }
 .game-container #round-text,

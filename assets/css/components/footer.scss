@@ -1,7 +1,7 @@
 .footer-text {
     @include headerFont {
         padding: 5px;
-        color: $lightRed;
+        color: $lRed;
     }
     text-shadow: 1px 1px 1px $offWhite;
 }

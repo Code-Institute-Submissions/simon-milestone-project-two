@@ -33,6 +33,8 @@
                 <button type="button" class="btn btn-primary">
                     <i id="volume-btn" class="fas fa-volume-up"></i>
                 </button>
+                <!--Button to trigger the feedback modal - hidden as this is only for functional purposes and is programatically clicked to display the modal-->
+                <button id="feedback-btn" type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#feedbackModal"></button>
             </div>
         </div>
     </header>
@@ -95,7 +97,7 @@
             <a href="https://github.com/hebs87" target="_blank">Sunny Hebbar</a>
         </h6>
     </footer>
-
+    
     <!--Instructions Modal-->
     <div class="modal fade" id="intructionsModal" tabindex="-1" role="dialog" aria-labelledby="intructionsModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -141,6 +143,27 @@
                             <em class="text-uppercase"><q>Legendary</q></em> Mode: You can combine <em class="text-uppercase"><q>Hard</q></em> & 
                             <em class="text-uppercase"><q>Strict</q></em> Modes to achieve Legendary status!
                         </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="modal-btn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Feedback Modal-->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-header-title" id="feedbackModalTitle"></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-body-title"></h4>
+                    <p class="modal-body-text"></p>
                 </div>
                 <div class="modal-footer">
                     <button id="modal-btn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

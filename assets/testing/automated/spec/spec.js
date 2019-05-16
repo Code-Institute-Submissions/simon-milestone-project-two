@@ -91,18 +91,12 @@ describe("userWin function", function() {
 describe("resetColor function", function() {
     
     beforeEach(function() {
-        let yellowBtn = $("#yellow-btn");
-        let redBtn = $("#red-btn");
-        let greenBtn = $("#green-btn");
-        let blueBtn = $("#blue-btn");
+        let gameBtns = $(".game-btn").children();
     });
     
     it("should remove class 'lit' from all game buttons", function() {
         resetColor();
-        expect(yellowBtn).not.toHaveClass("lit");
-        expect(redBtn).not.toHaveClass("lit");
-        expect(greenBtn).not.toHaveClass("lit");
-        expect(blueBtn).not.toHaveClass("lit");
+        expect(gameBtns).not.toHaveClass("lit");
     });
     
 });

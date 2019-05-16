@@ -7,13 +7,13 @@
 .close,
 #modal-btn {
     @include headerFont {
-        color: $lightRed;
+        color: $lRed;
         text-shadow: 1px 1px 1px $offWhite;
     }
 }
 
 .close:hover {
-    color: $lightRed;
+    color: $lRed;
 }
 
 .modal-body-text {
@@ -21,6 +21,6 @@
             family: "Orbitron", sans-serif;
             weight: 300;
         }
-    color: $lightRed;
+    color: $lRed;
     letter-spacing: 1px;
 }

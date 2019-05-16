@@ -2,7 +2,7 @@
     .btn {
         @include headerFont {
             font-size: 30px;
-            color: $lightRed;
+            color: $lRed;
             text-shadow: 1px 1px 1px $offWhite;
             background: none;
             border: none;
@@ -15,7 +15,7 @@
     .btn:hover,
     .btn:focus {
         text-decoration: none;
-        color: $lightRed;
+        color: $lRed;
         background: none;
         border: none;
         box-shadow: none;
@@ -27,8 +27,8 @@
         @include headerFont {
             text-transform: uppercase;
             letter-spacing: 1px;
-            background-color: $darkRed;
-            color: $lightRed;
+            background-color: $dRed;
+            color: $lRed;
             border-radius: 10px;
             border-color: $grey;
             width: inherit;
