@@ -1,4 +1,4 @@
-# Simon Game - Milestone Project Two
+# [Simon Game](https://hebs87.github.io/simon-milestone-project-two/) - Milestone Project Two
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@
 
 ## About
 
-This application (app) is my rendition of the classic simple memory game, **_Simon_**. The aim of the game is to replicate a sequence of signals which are displayed via a synchronised combination of musical tones and animated buttons.
+This application (app) is my rendition of the classic simple memory game, [**_Simon_**](https://hebs87.github.io/simon-milestone-project-two/). The aim of the game is to replicate a sequence of signals which are displayed via a synchronised combination of musical tones and animated buttons.
 
 You can find out more about the original **_Simon_** game and rules by watching this [video](https://www.youtube.com/watch?v=1Yqj76Q4jJ4), or visiting this [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)) page.
 

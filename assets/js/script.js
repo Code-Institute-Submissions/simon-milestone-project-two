@@ -29,7 +29,7 @@ let cpuSequence = []; //CPU sequence
 let userSequence = []; //User sequence
 let flash; //Number of flashes that appear in the game
 let round; //Determines which round/attempt we are on
-let totalRounds = 10; //The total number of rounds before the user wins the game
+let totalRounds = 20; //The total number of rounds before the user wins the game
 let correct; //Determines whether the player has hit the right colors or not
 let cpuTurn; //keeps track of whether it's the computer's turn or the user's turn
 let intervalId; //Determines the duration of function execution

@@ -89,3 +89,10 @@ button:focus {
 #blue-btn.lit {
     background-color: $blue;
 }
+
+.modal-btn {
+    @include headerFont {
+        color: $lRed;
+        text-shadow: 1px 1px 1px $offWhite;
+    }
+}

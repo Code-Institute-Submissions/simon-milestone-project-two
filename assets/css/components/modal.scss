@@ -5,7 +5,8 @@
 .modal-header-title,
 .modal-body-title,
 .close,
-#modal-btn {
+#modal-btn,
+#modal-btn-two {
     @include headerFont {
         color: $lRed;
         text-shadow: 1px 1px 1px $offWhite;

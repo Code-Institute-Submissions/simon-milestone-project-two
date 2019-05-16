@@ -112,6 +112,13 @@ button:focus {
 #blue-btn.lit {
   background-color: #0000ff; }
 
+.modal-btn {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ff1810;
+  text-shadow: 1px 1px 1px #fafafa; }
+
 .footer-text {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
@@ -146,7 +153,8 @@ button:focus {
 .modal-header-title,
 .modal-body-title,
 .close,
-#modal-btn {
+#modal-btn,
+#modal-btn-two {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
